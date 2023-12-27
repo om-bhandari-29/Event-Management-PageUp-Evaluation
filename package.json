@@ -1,0 +1,19 @@
+{
+  "name": "pageup-project",
+  "version": "1.0.0",
+  "description": "Volunteer Management System project made to test the skills of mine at PageUp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Om Bhandari",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.2",
+    "path": "^0.12.7"
+  }
+}
