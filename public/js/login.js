@@ -14,7 +14,7 @@ const login = async(email, password) =>{
 
         if(res.status === 'success'){
             alert("success")
-            location.assign('/');
+            location.assign('/volunteerHome');
         }
         else
         if(res.status === 'UDN'){

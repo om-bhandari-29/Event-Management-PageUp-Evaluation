@@ -21,3 +21,11 @@ exports.volunteerSignup = async(req, res) => {
         // allPosts: withDuration
     });
 }
+
+exports.volunteerHome = async(req, res) => {
+    res.status(200).render('volunteerHome', {
+        title: 'Home'
+        // allPosts: post
+        // allPosts: withDuration
+    });
+}
