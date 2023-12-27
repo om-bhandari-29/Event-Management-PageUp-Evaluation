@@ -8,25 +8,6 @@ html,body{
     background-size: cover;
 }
 
-/* navbar */
-.navbar{
- 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:  #0d6efd;
-   
-  
-    
-}
-.navbar a{
-    text-decoration: none;
-    font-size: 50px;
-    align-self: center;
-color: white;
-    
-}
-
 /* index button  */
 .main_btn{
     display: flex;
@@ -42,12 +23,13 @@ color: white;
 .in{
     width: 50%;
 }
+
 .btn{
-    height: 245px;
+    height: 105px;
     width: 230px;
     margin: 50px;
     border-radius: 20px;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: white;
     margin-left : 2%;
     margin-right : 2%;
@@ -62,28 +44,12 @@ color: white;
 }
 
 /* volunteer home  */
-#VHF{
-    background: url('./../img/all1.jpg');
-    background-size: cover;
-}
+
 .HF{
     background: url('./../img/all1.jpg');
     background-size: cover;
 }
 .CO{
-    
-    background: url('./../img/col.png');
+    background: url('./../img/co1.png');
     background-position: center;
-
-}
-#VHS{
-    background: url('./../img/evn1.jpg');
-    background-size: cover;
-    background-position: center;
-}
-#VHT{
-    background: url('./../img/pro3.jpg');
-    background-size:cover;
-    background-position: center;
-    
 }
