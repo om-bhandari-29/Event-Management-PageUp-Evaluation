@@ -90,6 +90,18 @@ exports.signin = async(req, res) => {
     sendJwt.createSendToken(isUserExists, 200, res);
 }
 
+exports.signout = async (req, res) =>{
+    res.cookie('jwt', 'loggedout', {
+      expires: new Date(Date.now() + 300 + 1000),
+      httpOnly: true
+    })
+    
+    res.status(200).json({
+      status: 'success',
+      message: 'Logged Out Successfully'
+    })
+  }
+
 exports.getAllVolunteer = async(req, res) => {
     let allVolunteer, dataCount;
     try{
