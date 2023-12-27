@@ -1,5 +1,6 @@
 const Volunteer = require('../model/volunteerModel.js');
 const sendJwt = require('./sendJwt.js');
+const jwt = require("jsonwebtoken");
 
 exports.signup = async (req, res) => {
     const {name, email, mobileNumber, password, confirmPassword, place, skills} = req.body;
@@ -181,3 +182,29 @@ exports.getVolunteerDetails = async(req, res) => {
         newVolunter
     })
 }
+
+exports.LoggedInUser = async (req, res, next) =>{
+    // console.log(req.cookies.jwt);
+    if(req.cookies.jwt) 
+    {
+        try {
+            const jwtToken = req.cookies.jwt;
+            const decoded =  jwt.verify(jwtToken, process.env.JWT_SECRET);
+
+            const currentVol = await Volunteer.findById(decoded.id);
+
+            if (!currentVol) {
+                return next();
+            }
+  
+        // THERE IS A LOGGED IN USER
+        res.locals.user = currentVol;
+        // console.log(res.locals.user._id);
+        return next();
+      } 
+      catch (err) {
+        return next();
+      }
+    }
+    next();
+  };

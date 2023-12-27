@@ -4,9 +4,11 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const morgan = require('morgan'); //to display route that is requested
 const path = require('path');
+const cookieParser = require("cookie-parser");
 const { connected } = require('process');
 
 dotenv.config();
+app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'pug'); //to tell express which template engine we are going to use

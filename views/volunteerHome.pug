@@ -9,9 +9,18 @@ html(lang='en')
   body
     nav
       .navbar
-        a(href='#') Volunteer Management System
+        //- a(href='#') Volunteer Management System
+        //- h2=`Welcome`
+        if user
+          h1#vol_home_h1= `Welcome ${user.name}`
+          //- p= `Welcome ${user.name}`
+          button#vol_home_logout(type="button") Log Out
+        else 
+          h1 Volunteer Management System
 
     .vol_home_main_btn
       button#VHF.vol_home_btn All Volunteer
       button#VHS.vol_home_btn All Event
       button#VHT.vol_home_btn My profile
+
+  script(src='/js/logout.js') 
