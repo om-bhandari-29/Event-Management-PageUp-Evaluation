@@ -111,3 +111,22 @@ exports.getAllVolunteer = async(req, res) => {
         }
     })
 }
+
+exports.deleteVolunteer = async(req, res) => {
+    const id = req.params.id;
+
+    try{
+        await Volunteer.findByIdAndDelete({_id: id});
+    }
+    catch(err){
+        console.log("Error deleting volunteer");
+        return res.status(500).json({
+            message: 'Error deleting volunteer'
+        })
+    }
+
+    res.status(200).json({
+        status: 'Success',
+        message: 'volunteer deleted successfully',
+    })
+}

@@ -90,3 +90,45 @@ exports.signin = async(req, res) => {
         })   
     }
 }
+
+exports.getAllOrganization = async(req, res) => {
+    let allOrganization, dataCount;
+    try{
+        allOrganization = await Organization.find();
+        dataCount = await Organization.find().count();
+    }
+    catch(err){
+        console.log("Error fetching all Organization");
+        return res.status(500).json({
+            message: 'Error fetching all Organization'
+        })
+    }
+
+    res.status(200).json({
+        status: 'Success',
+        message: 'Data fetched Successfully',
+        data: {
+            total: dataCount,
+            allOrganization
+        }
+    })
+}
+
+exports.deleteOrganization = async(req, res) => {
+    const id = req.params.id;
+
+    try{
+        await Organization.findByIdAndDelete({_id: id});
+    }
+    catch(err){
+        console.log("Error deleting Organization");
+        return res.status(500).json({
+            message: 'Error deleting Organization'
+        })
+    }
+
+    res.status(200).json({
+        status: 'Success',
+        message: 'Organization deleted successfully',
+    })
+}
