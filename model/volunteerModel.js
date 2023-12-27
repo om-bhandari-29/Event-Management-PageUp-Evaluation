@@ -24,7 +24,7 @@ const volunteerSchema = new mongoose.Schema({
         // require: true
     },
     
-    Place: String,
+    place: String,
     skills:{
         type: String
     },

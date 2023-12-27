@@ -24,12 +24,14 @@ exports.signup = async (req, res) => {
     }
 
     try{
-        const {name, email, mobileNumber, password} = req.body;
+        const {name, email, mobileNumber, password, place, skills} = req.body;
         const newVolunteer = new Volunteer({
             name,
             email,
             mobileNumber,
-            password
+            password,
+            place,
+            skills
         });
 
         await newVolunteer.save();
@@ -102,12 +104,22 @@ exports.getAllVolunteer = async(req, res) => {
         })
     }
 
+    const newAllVolunteer = allVolunteer.map((vol) => {
+        return {
+            name: vol.name,
+            email: vol.email,
+            place: vol.place,
+            skills: vol.skills
+        }
+    });
+
     res.status(200).json({
         status: 'Success',
         message: 'Data fetched Successfully',
         data: {
             total: dataCount,
-            allVolunteer
+            // allVolunteer
+            newAllVolunteer
         }
     })
 }
@@ -128,5 +140,33 @@ exports.deleteVolunteer = async(req, res) => {
     res.status(200).json({
         status: 'Success',
         message: 'volunteer deleted successfully',
+    })
+}
+
+exports.getVolunteerDetails = async(req, res) => {
+    const id = req.params.id;
+    let volunteer;
+
+    try{
+        volunteer = await Volunteer.findById({_id: id});
+    }
+    catch(err){
+        console.log("Error fetching volunteer details");
+        return res.status(500).json({
+            message: 'Error fetching volunteer details'
+        })
+    }
+
+    const newVolunter = Object.assign({}, {
+        name: volunteer.name,
+        email: volunteer.email,
+        place: volunteer.place,
+        skills: volunteer.skills
+    })
+
+    res.status(200).json({
+        status: 'Success',
+        message: 'volunteer details fetched successfully',
+        newVolunter
     })
 }
