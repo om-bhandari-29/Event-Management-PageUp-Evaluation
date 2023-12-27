@@ -29,3 +29,11 @@ exports.volunteerHome = async(req, res) => {
         // allPosts: withDuration
     });
 }
+
+exports.organizationSignup = async(req, res) => {
+    res.status(200).render('organizationSignup', {
+        title: 'Sign Up'
+        // allPosts: post
+        // allPosts: withDuration
+    });
+}

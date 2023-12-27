@@ -11,7 +11,7 @@ exports.signup = async(req, res) => {
     catch(err){
         console.log(err);
         return res.status(500).json({
-            status: 'err',
+            status: 'ECO',
             message: 'error checking existingOrganization',
             error : err
         })
@@ -22,13 +22,6 @@ exports.signup = async(req, res) => {
           status: "OAE",
           message: "Organization already exists"
         });
-    }
-
-    if(password != confirmPassword){
-        return res.status(400).json({
-            status: "error",
-            message: "password not matched"
-          });
     }
 
     try{
