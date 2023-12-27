@@ -20,18 +20,15 @@ mongoose.connect(db, {
     useCreateIndex: true,
     useFindAndModify: false,
     useNewUrlParser: true
-}).then(()=>console.log("Database connected successfully"))
-  .catch((err) => console.log("Error occured while connecting to DB + "+err));
-
-/*
-app.connect(db, {
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useNewUrlParser: true
 }).then(function(){
     console.log("Database connected successfully");
 }).catch(function(err){
     console.log("Error occured while connecting to DB + "+err);
 });
-*/
+
+app.use(express.json()); //to parse json from body (body parser) and to tell node js that we are using data in json format
+app.use(morgan("common"));
+//user defined
+const volunteerAuthRoutes = require('./routes/volunteerAuthRoutes.js');
+
+app.use('/api/volunteer', volunteerAuthRoutes);
