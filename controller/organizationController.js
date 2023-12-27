@@ -1,7 +1,7 @@
 const Organization = require('../model/organizationModel.js');
 
 exports.signup = async(req, res) => {
-    const { name, email, mobileNumber, password, establishedOn, mainBranch } = req.body;
+    const { name, email, mobileNumber, password, establishedOn, mainBranch, place } = req.body;
 
     let existingOrganization;
 
@@ -31,7 +31,8 @@ exports.signup = async(req, res) => {
             mobileNumber,
             password,
             establishedOn,
-            mainBranch
+            mainBranch,
+            place
         });
 
         await newOrganization.save();
@@ -104,12 +105,22 @@ exports.getAllOrganization = async(req, res) => {
         })
     }
 
+    const newallOrganization = allOrganization.map((vol) => {
+        return {
+            name: vol.name,
+            establishedOn: vol.establishedOn,
+            place: vol.place,
+            mainBranch: vol.mainBranch
+        }
+    });
+
     res.status(200).json({
         status: 'Success',
         message: 'Data fetched Successfully',
         data: {
             total: dataCount,
-            allOrganization
+            // allOrganization
+            newallOrganization
         }
     })
 }
@@ -130,5 +141,33 @@ exports.deleteOrganization = async(req, res) => {
     res.status(200).json({
         status: 'Success',
         message: 'Organization deleted successfully',
+    })
+}
+
+exports.getOrganizationDetails = async(req, res) => {
+    const id = req.params.id;
+    let organization;
+
+    try{
+        organization = await Organization.findById({_id: id});
+    }
+    catch(err){
+        console.log("Error fetching organization details");
+        return res.status(500).json({
+            message: 'Error fetching organization details'
+        })
+    }
+
+    const newOrganization = Object.assign({}, {
+        name: organization.name,
+        establishedOn: organization.establishedOn,
+        place: organization.place,
+        mainBranch: organization.mainBranch
+    })
+
+    res.status(200).json({
+        status: 'Success',
+        message: 'volunteer details fetched successfully',
+        newOrganization
     })
 }

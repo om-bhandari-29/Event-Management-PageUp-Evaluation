@@ -21,6 +21,7 @@ const organizationSchema = new mongoose.Schema({
         max: 10
     },
     establishedOn: Number,
+    place: String,
     
     mainBranch: {
         type: String,

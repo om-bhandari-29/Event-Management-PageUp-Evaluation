@@ -6,5 +6,6 @@ router.post('/signup', organizationController.signup);
 router.post('/signin', organizationController.signin);
 router.get('/getAllOrganization', organizationController.getAllOrganization);
 router.delete('/:id', organizationController.deleteOrganization);
+router.get('/details/:id', organizationController.getOrganizationDetails);
 
 module.exports = router;
