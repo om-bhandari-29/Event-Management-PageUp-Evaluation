@@ -67,7 +67,7 @@ exports.signin = async(req, res) => {
     }
 
     if(!isUserExists){
-        res.status(404).json({
+        return res.status(404).json({
             // status: 'err',
             message: 'user does not exists with the given mail id'
         })

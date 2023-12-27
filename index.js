@@ -31,8 +31,8 @@ app.use(morgan("common"));
 
 
 //user defined
-const volunteerAuthRoutes = require('./routes/volunteerAuthRoutes.js');
-const organizationAuthRoutes = require('./routes/organizationAuthRoutes.js');
+const volunteerRoutes = require('./routes/volunteerAuthRoutes.js');
+const organizationRoutes = require('./routes/organizationAuthRoutes.js');
 
-app.use('/api/volunteer', volunteerAuthRoutes);
-app.use('/api/organization', organizationAuthRoutes);
+app.use('/api/volunteer', volunteerRoutes);
+app.use('/api/organization', organizationRoutes);

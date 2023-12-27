@@ -1,4 +1,4 @@
-const Organization = require('./../model/organizationModel.js');
+const Organization = require('../model/organizationModel.js');
 
 exports.signup = async(req, res) => {
     const { name, email, mobileNumber, password, establishedOn, mainBranch } = req.body;

@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const volunteerAuthController = require('./../controller/volunteerAuthController.js');
+const volunteerController = require('../controller/volunteerController.js');
 
-router.post('/signup', volunteerAuthController.signup);
-router.post('/signin', volunteerAuthController.signin);
+router.post('/signup', volunteerController.signup);
+router.post('/signin', volunteerController.signin);
 
 
 
