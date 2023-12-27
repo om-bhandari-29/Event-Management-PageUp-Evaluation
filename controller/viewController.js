@@ -8,7 +8,7 @@ exports.index = async(req, res) => {
 
 exports.login = async(req, res) => {
     res.status(200).render('login', {
-        title: 'Home'
+        title: 'Login'
         // allPosts: post
         // allPosts: withDuration
     });
@@ -16,7 +16,7 @@ exports.login = async(req, res) => {
 
 exports.volunteerSignup = async(req, res) => {
     res.status(200).render('volunteerSignup', {
-        title: 'Home'
+        title: 'Sign Up'
         // allPosts: post
         // allPosts: withDuration
     });

@@ -13,8 +13,8 @@ exports.signup = async (req, res) => {
     catch(err){
         console.log(err);
         return res.status(500).json({
-            status: 'err',
-            message: 'error checking user',
+            status: 'ECV',
+            message: 'error checking volunteer',
             error : err
         })
     }
@@ -27,12 +27,12 @@ exports.signup = async (req, res) => {
         });
     }
 
-    if(password != confirmPassword){
-        return res.status(400).json({
-            status: "error",
-            message: "password not matched"
-          });
-    }
+    // if(password != confirmPassword){
+    //     return res.status(400).json({
+    //         status: "error",
+    //         message: "password not matched"
+    //       });
+    // }
     try{
         const newVolunteer = new Volunteer({
             name,
@@ -50,7 +50,7 @@ exports.signup = async (req, res) => {
         console.log("error in volunteerController.js line 44");
         console.log("Error : "+err);
         res.status(500).json({
-            // status: 'err',
+            status: 'err',
             message: 'error while creating user',
             err
         })
