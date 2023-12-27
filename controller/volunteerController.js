@@ -1,4 +1,5 @@
 const Volunteer = require('../model/volunteerModel.js');
+const sendJwt = require('./sendJwt.js');
 
 exports.signup = async (req, res) => {
     const {name, email, mobileNumber, password, confirmPassword, place, skills} = req.body;
@@ -19,6 +20,7 @@ exports.signup = async (req, res) => {
 
     if(existingUser){
         return res.status(400).json({
+          user: existingUser,
           status: "UAE",
           message: "User already exists with the given email id"
         });
@@ -40,15 +42,11 @@ exports.signup = async (req, res) => {
             skills
         });
 
-        await newVolunteer.save();
-
-        res.status(200).json({
-            status: 'success',
-            message: 'new volunteer created successfully'
-        })
+        const newVol = await newVolunteer.save();
+        sendJwt.createSendToken(newVol, 200, res);
     }
     catch(err){
-        console.log("error in volunteerAuthController.js line 43");
+        console.log("error in volunteerController.js line 44");
         console.log("Error : "+err);
         res.status(500).json({
             // status: 'err',
