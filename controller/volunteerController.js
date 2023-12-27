@@ -88,3 +88,26 @@ exports.signin = async(req, res) => {
         })   
     }
 }
+
+exports.getAllVolunteer = async(req, res) => {
+    let allVolunteer, dataCount;
+    try{
+        allVolunteer = await Volunteer.find();
+        dataCount = await Volunteer.find().count();
+    }
+    catch(err){
+        console.log("Error fetching all volunteers");
+        return res.status(500).json({
+            message: 'Error fetching all volunteers'
+        })
+    }
+
+    res.status(200).json({
+        status: 'Success',
+        message: 'Data fetched Successfully',
+        data: {
+            total: dataCount,
+            allVolunteer
+        }
+    })
+}
