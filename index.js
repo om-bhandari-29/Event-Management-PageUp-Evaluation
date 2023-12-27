@@ -28,7 +28,11 @@ mongoose.connect(db, {
 
 app.use(express.json()); //to parse json from body (body parser) and to tell node js that we are using data in json format
 app.use(morgan("common"));
+
+
 //user defined
 const volunteerAuthRoutes = require('./routes/volunteerAuthRoutes.js');
+const organizationAuthRoutes = require('./routes/organizationAuthRoutes.js');
 
 app.use('/api/volunteer', volunteerAuthRoutes);
+app.use('/api/organization', organizationAuthRoutes);

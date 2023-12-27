@@ -16,12 +16,23 @@ const organizationSchema = new mongoose.Schema({
 
     mobileNumber : {
         type: Number,
-        require: true,
+        // require: true,
         min: 10,
         max: 10
     },
     establishedOn: Number,
-    mainBranch: String,
+    
+    mainBranch: {
+        type: String,
+        default: null
+    },
+
+    password: {
+        type: String,
+        require: true,
+        min: 10,
+        max: 20
+    },
 });
 
 module.exports = mongoose.model("Organization", organizationSchema);

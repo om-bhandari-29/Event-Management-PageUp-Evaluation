@@ -16,7 +16,7 @@ const volunteerSchema = new mongoose.Schema({
 
     mobileNumber : {
         type: Number,
-        require: true,
+        // require: true,
     },
 
     yearOfbirth: {
@@ -35,13 +35,6 @@ const volunteerSchema = new mongoose.Schema({
         min: 10,
         max: 20
     },
-
-    confirmPassword: {
-        type: String,
-        require: true,
-        min: 10,
-        max: 20
-    }
 });
 
 module.exports = mongoose.model("Volunteer", volunteerSchema);
