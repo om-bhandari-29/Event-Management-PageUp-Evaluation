@@ -1,0 +1,89 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    background-color:   rgba(220, 228, 235, 0.838);;
+    background-image: url('./../img/bg_main.jpeg');
+    background-size: cover;
+}
+
+/* navbar */
+.navbar{
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  #0d6efd;
+   
+  
+    
+}
+.navbar a{
+    text-decoration: none;
+    font-size: 50px;
+    align-self: center;
+color: white;
+    
+}
+
+/* index button  */
+.main_btn{
+    display: flex;
+    /* justify-content: center; */
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+
+   
+}
+.in{
+    width: 50%;
+}
+.btn{
+    height: 245px;
+    width: 230px;
+    margin: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    margin-left : 2%;
+    margin-right : 2%;
+    font-size: x-large;
+    box-shadow:2px 5px 10px 1px black;
+  
+    
+}
+.btn:hover{
+    box-shadow:2px 5px 10px 4px black;
+    font-weight: bold;
+}
+
+/* volunteer home  */
+#VHF{
+    background: url('./../img/all1.jpg');
+    background-size: cover;
+}
+.HF{
+    background: url('./../img/all1.jpg');
+    background-size: cover;
+}
+.CO{
+    
+    background: url('./../img/col.png');
+    background-position: center;
+
+}
+#VHS{
+    background: url('./../img/evn1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+#VHT{
+    background: url('./../img/pro3.jpg');
+    background-size:cover;
+    background-position: center;
+    
+}

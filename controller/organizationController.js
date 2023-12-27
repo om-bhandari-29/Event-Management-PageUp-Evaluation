@@ -1,7 +1,7 @@
 const Organization = require('../model/organizationModel.js');
 
 exports.signup = async(req, res) => {
-    const { name, email, mobileNumber, password, establishedOn, mainBranch, place } = req.body;
+    const { name, email, mobileNumber, password, confirmPassword, establishedOn, mainBranch, place } = req.body;
 
     let existingOrganization;
 
@@ -22,6 +22,13 @@ exports.signup = async(req, res) => {
           status: "OAE",
           message: "Organization already exists"
         });
+    }
+
+    if(password != confirmPassword){
+        return res.status(400).json({
+            status: "error",
+            message: "password not matched"
+          });
     }
 
     try{

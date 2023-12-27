@@ -8,6 +8,11 @@ const { connected } = require('process');
 
 dotenv.config();
 
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'pug'); //to tell express which template engine we are going to use
+app.set('views', path.join(__dirname, 'views')); //this line is to tells that, where our view is stored
+
+
 const port = process.env.PORT;
 const db = process.env.MONGO_DB_URL;
 
@@ -33,6 +38,9 @@ app.use(morgan("common"));
 //user defined
 const volunteerRoutes = require('./routes/volunteerRoutes.js');
 const organizationRoutes = require('./routes/organizationRoutes.js');
+const viewsRoutes = require('./routes/viewRoutes.js');
 
+
+app.use('/', viewsRoutes);
 app.use('/api/volunteer', volunteerRoutes);
 app.use('/api/organization', organizationRoutes);

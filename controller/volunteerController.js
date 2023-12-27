@@ -1,7 +1,8 @@
 const Volunteer = require('../model/volunteerModel.js');
 
 exports.signup = async (req, res) => {
-    const email = req.body.email;
+    const {name, email, mobileNumber, password, confirmPassword, place, skills} = req.body;
+    // const email = req.body.email;
     let existingUser;
 
     try{
@@ -23,8 +24,13 @@ exports.signup = async (req, res) => {
         });
     }
 
+    if(password != confirmPassword){
+        return res.status(400).json({
+            status: "error",
+            message: "password not matched"
+          });
+    }
     try{
-        const {name, email, mobileNumber, password, place, skills} = req.body;
         const newVolunteer = new Volunteer({
             name,
             email,
