@@ -3,15 +3,18 @@ html,body{
     width: 100%;
     margin: 0%;
     padding: 0%;
-    background-color:   rgba(220, 228, 235, 0.838);;
+    background-color:   rgba(220, 228, 235, 0.838);
+}
+
+#mainId{
     background-image: url('./../img/bg_main.jpeg');
     background-size: cover;
+    background-position: center;
 }
 
 /* index button  */
 .main_btn{
     display: flex;
-    /* justify-content: center; */
     justify-content: flex-end;
     align-items: center;
     width: 100%;
@@ -29,7 +32,6 @@ html,body{
     width: 230px;
     margin: 50px;
     border-radius: 20px;
-    /* overflow: hidden; */
     background-color: white;
     margin-left : 2%;
     margin-right : 2%;
@@ -53,3 +55,75 @@ html,body{
     background: url('./../img/co1.png');
     background-position: center;
 }
+
+#vbtn{
+    height: 100%;
+}
+
+.signin {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    /* padding: 0%; */
+    background-color: white;
+    box-shadow:2px 5px 10px 4px black;
+    border-radius: 15px;
+    margin-left: 104px;
+}
+
+form input {
+    margin: 2px;
+    height: 30px;
+    width: 99%;
+}
+
+
+/* navbar */
+.navbar{
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  #0d6efd;   
+}
+.navbar a{
+    text-decoration: none;
+    font-size: 50px;
+    align-self: center;
+    color: white;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+.center input[type="button"]{
+    width: 100%;
+    background-color: #0d6efd;
+    font-size: medium;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: large;
+}
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    padding: 0%;
+    background-color: white;
+    box-shadow:2px 5px 10px 4px black;
+    border-radius: 15px;
+
+}
+

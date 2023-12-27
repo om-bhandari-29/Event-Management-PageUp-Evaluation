@@ -68,7 +68,7 @@ exports.signin = async(req, res) => {
     catch(err){
         console.log("Error at volunteerAuthController.js line 60");
         res.status(500).json({
-            // status: 'err',
+            status: 'err',
             message: 'error while checking that user already exists or not',
             err
         })
@@ -76,7 +76,7 @@ exports.signin = async(req, res) => {
 
     if(!isUserExists){
         return res.status(404).json({
-            // status: 'err',
+            status: 'UDN',
             message: 'user does not exists with the given mail id'
         })
     }

@@ -1,0 +1,35 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Document
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    nav
+      .navbar
+        a(href='#') Volunteer Management System
+    .center
+      .signup
+        img(src='/img/lock.png', width='80', height='40', alt='')
+        h3 Volunteer Sign Up
+        
+        form(action='')
+          input(type='text', placeholder='first name*', required='')
+          br
+          input(type='text', placeholder='Mobile no*', required='')
+          br
+          input.in(type='email', placeholder='Email*', required='')
+          br
+          input.in(type='text', placeholder='Place*', required='')
+          br
+          input.in(type='text', placeholder='Skills*', required='')
+          br
+          input.in(type='password', placeholder='password*', required='')
+          br
+          input.in(type='password', placeholder='Confirm password*', required='')
+          br
+          input.in(type='button', value='Sign Up')
+        p.para
+          | Already have an account 
+          a(href='') Login 
