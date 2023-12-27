@@ -9,11 +9,8 @@ html(lang='en')
   body
     nav
       .navbar
-        //- a(href='#') Volunteer Management System
-        //- h2=`Welcome`
         if user
           h1#vol_home_h1= `Welcome ${user.name}`
-          //- p= `Welcome ${user.name}`
           button#vol_home_logout(type="button") Log Out
         else 
           h1 Volunteer Management System

@@ -21,6 +21,10 @@ const login = async(email, password) =>{
             alert("user does not exits with given mail id");
             location.assign('/login')
         }
+        else if(res.status === 'wrong password'){
+            alert("Wrong Password Entered");
+            location.reload(true);
+        }
         else{
             alert("Password Is Incorrect");
             location.assign('/login')
