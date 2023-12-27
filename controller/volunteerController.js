@@ -81,18 +81,13 @@ exports.signin = async(req, res) => {
 
     const isPasswordCorrect = (isUserExists.password == password)? true : false;
 
-    if(isPasswordCorrect == true){
-        res.status(200).json({
-            status: 'success',
-            message: 'user logged in successfully'
+    if(isPasswordCorrect == false){
+        res.status(400).json({
+            message: 'Provided password is wrong'
         })
     }
-    else{
-        res.status(200).json({
-            status: 'fail',
-            message: 'Password is incorrect'
-        })   
-    }
+
+    sendJwt.createSendToken(isUserExists, 200, res);
 }
 
 exports.getAllVolunteer = async(req, res) => {
