@@ -3,7 +3,7 @@ const sendJwt = require('./sendJwt.js');
 const jwt = require("jsonwebtoken");
 
 exports.signup = async (req, res) => {
-    const {name, email, number, password, place, skills} = req.body;
+    const {name, email, number, password, place, skills, gender} = req.body;
     // const email = req.body.email;
     let existingVolunteer;
 
@@ -34,7 +34,8 @@ exports.signup = async (req, res) => {
             password,
             place,
             skills,
-            number
+            number,
+            gender
         });
 
         const newVol = await newVolunteer.save();
