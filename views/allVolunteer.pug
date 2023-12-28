@@ -13,8 +13,14 @@ html(lang='en')
   body
     nav
       .navbar
-        //- a(href='/volunteerHome') Volunteer Management System
-        h1 Volunteer Management System | All Volunteers
+        if organization
+          a#vol_home_h1(href='/organizationHome')= `Welcome ${organization.name}`
+          button#vol_home_logout(type="button") Log Out
+        else 
+          h1 Volunteer Management System
+      //- .navbar
+      //-   //- a(href='/volunteerHome') Volunteer Management System
+      //-   h1 Volunteer Management System | All Volunteers
 
     if(volunteers.length == 0)
         h1(style='text-align: center;') There are no Volunteers to display

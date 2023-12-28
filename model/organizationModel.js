@@ -14,6 +14,7 @@ const organizationSchema = new mongoose.Schema({
         unique: true
     },
 
+    address: String,
     mobileNumber : {
         type: Number,
         // require: true,

@@ -8,9 +8,15 @@ html(lang='en')
   body
     nav
       .navbar
-        a(href='#') Volunteer Management System
+        if organization
+          a#vol_home_h1(href='/organizationHome')= `Welcome ${organization.name}`
+          button#vol_home_logout(type="button") Log Out
+        else 
+          h1 Volunteer Management System
     .center
       .signup
+        h3
+          a(href="/myEvents") My Events  
         h3 Enter Event Details
         form(action='')
           input#name(type='text', placeholder='Name*', required='')
@@ -27,4 +33,5 @@ html(lang='en')
           br
           input#create_event_btn(type='button', value='Create Event')
           
-  script(src="/js/createEvent.js") 
+  script(src="/js/createEvent.js")
+  script(src="/js/logout.js")  

@@ -13,9 +13,13 @@ html(lang='en')
   body
     nav
       .navbar
-        //- a(href='/volunteerHome') Volunteer Management System
-        h1 Volunteer Management System | All Events
-    
+        if organization
+          a#vol_home_h1(href='/organizationHome')= `Welcome ${organization.name}`
+          button#vol_home_logout(type="button") Log Out
+        else 
+          h1 Volunteer Management System 
+
+    h2 My Events Page
     .all_vol_main_btn
       if(events.length == 0)
         h1 No Events to display
@@ -48,3 +52,5 @@ html(lang='en')
                     b Organized By :
                     |  #{event.createdBy}
                     p 
+  
+  script(src="/js/logout.js") 

@@ -7,6 +7,9 @@ html(lang='en')
     link(rel='stylesheet', href='/css/style.css')
     
   body
+    nav
+      .navbar
+        a(href='/') Volunteer Management System
     .main_btn
       .in
         .signin
@@ -18,6 +21,7 @@ html(lang='en')
             br
             input#orgLoginBtn(type="button", value="Submit")
             br
+            a(href="/organizationSignup") Click here to Sign Up 
 
 
     script(src='/js/orgLogin.js') 

@@ -70,18 +70,21 @@ html,body{
 #VHF{
     background: url(/img/all1.jpg);
     background-size: cover;
+    cursor: pointer;
 }
 
 #VHS{
     background: url(/img/evn1.jpg);
     background-size: cover;
     background-position: center;
+    cursor: pointer;
 }
 
 #VHT{
     background: url(/img/pro3.jpg);
     background-size:cover;
     background-position: center;
+    cursor: pointer;
 }
 
 .btn:hover{
@@ -174,6 +177,7 @@ form input {
     width: 77px;
     border-radius: 10px;
     margin-left: 30%;
+    cursor: pointer;
 }
 
 #vol_home_h1{
