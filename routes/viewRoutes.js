@@ -15,6 +15,7 @@ router.get('/volunteerSignup', viewsController.volunteerSignup);
 router.get('/volunteerHome', viewsController.volunteerHome);
 router.get('/allVolunteer', viewsController.allVolunteer);
 router.get('/allEvents', viewsController.allEvents);
+router.get('/myEvents', viewsController.myEvents);
 router.get('/createEvent', viewsController.createEvent);
 
 

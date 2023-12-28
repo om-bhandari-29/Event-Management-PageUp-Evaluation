@@ -92,12 +92,11 @@ html,body{
 /* volunteer home  */
 
 .HF{
-    background: url('./../img/all1.jpg');
+    background-color: antiquewhite;
     background-size: cover;
 }
 .CO{
-    background: url('./../img/co1.png');
-    background-position: center;
+    background-color: antiquewhite;
 }
 
 #vbtn{

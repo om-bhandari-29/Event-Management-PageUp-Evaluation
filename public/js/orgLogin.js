@@ -35,6 +35,26 @@ const orgLogin = async(email, password) =>{
     }
 }
 
+document.addEventListener("DOMContentLoaded", ()=>{
+    const password = document.getElementById("password");
+    password.addEventListener('keypress', function(event) {
+
+        if (event.key === 'Enter') {
+
+            const passwordVal = password.value;
+            const email = document.getElementById("email").value;
+
+            if(email == "" || passwordVal == ""){
+                alert("Enter Your Credentials");
+            }
+            else{
+                // console.log(email, password);
+                orgLogin(email, password.value);
+            }
+        }
+    });
+})
+
 const orgLoginClick = document.getElementById('orgLoginBtn');
 if(orgLoginClick)
 {

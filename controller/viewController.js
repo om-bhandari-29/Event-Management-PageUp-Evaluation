@@ -78,6 +78,23 @@ exports.allEvents = async(req, res) => {
         events: events
     });
 }
+exports.myEvents = async(req, res) => {
+    // req.loggedInOrg.createdById
+    // console.log(req.loggedInOrg.createdById);
+    var events;
+    try{
+        events = await Event.find({createdById: req.loggedInOrg._id});
+    }
+    catch(err){
+        console.log(err);
+    }
+
+    // console.log("events : "+events);
+    res.status(200).render('myEvents', {
+        title: 'All Events',
+        events: events
+    });
+}
 
 exports.createEvent = async(req, res) => {
     res.status(200).render('createEvent', {

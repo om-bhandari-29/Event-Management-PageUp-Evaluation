@@ -18,12 +18,12 @@ const volLogin = async(email, password) =>{
         }
         else
         if(res.status === 'UDN'){
-            alert("user does not exits with given mail id");
-            location.assign('/volunteerSignup')
+            alert("volunteer does not exits with given mail id");
+            // location.assign('/volunteerSignup')
         }
         else if(res.status === 'WP'){
             alert("Wrong Password Entered");
-            location.reload(true);
+            // location.reload(true);
         }
         else{
             alert("Some Error occured");
@@ -34,6 +34,26 @@ const volLogin = async(email, password) =>{
         console.log(err);
     }
 }
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    const password = document.getElementById("password");
+    password.addEventListener('keypress', function(event) {
+
+        if (event.key === 'Enter') {
+
+            const passwordVal = password.value;
+            const email = document.getElementById("email").value;
+
+            if(email == "" || passwordVal == ""){
+                alert("Enter Your Credentials");
+            }
+            else{
+                // console.log(email, passwordVal);
+                volLogin(email, password.value);
+            }
+        }
+    });
+})
 
 const volLoginClick = document.getElementById('volLoginBtn');
 if(volLoginClick)
