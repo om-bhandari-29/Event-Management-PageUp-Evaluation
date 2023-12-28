@@ -1,4 +1,6 @@
 const Organization = require('../model/organizationModel.js');
+const sendJwt = require('./sendJwt.js');
+const jwt = require("jsonwebtoken");
 
 exports.signup = async(req, res) => {
     const { name, email, mobileNumber, password, confirmPassword, establishedOn, mainBranch, place } = req.body;
@@ -35,7 +37,8 @@ exports.signup = async(req, res) => {
             place
         });
 
-        await newOrganization.save();
+        const newOrg = await newOrganization.save();
+        // sendJwt.createSendToken(newOrg, 200, res, orgSignup);
 
         res.status(200).json({
             status: 'success',
@@ -53,6 +56,7 @@ exports.signup = async(req, res) => {
     }
 }
 
+//SIGNING IN
 exports.signin = async(req, res) => {
     const {email, password} = req.body;
     let isOrganizationExists;
@@ -61,35 +65,29 @@ exports.signin = async(req, res) => {
         isOrganizationExists = await Organization.findOne({email});
     }
     catch(err){
-        console.log("Error at OrganizationAuthController.js line 63");
         res.status(500).json({
-            // status: 'err',
+            status: 'err',
             message: 'error while checking that Organization already exists or not',
-            err
         })
     }
 
     if(!isOrganizationExists){
         return res.status(404).json({
-            // status: 'err',
+            status: 'ODN',
             message: 'Organization does not exists with the given mail id'
         })
     }
 
     const isPasswordCorrect = (isOrganizationExists.password == password)? true : false;
 
-    if(isPasswordCorrect == true){
-        res.status(200).json({
-            status: 'success',
-            message: 'Organization logged in successfully'
+    if(isPasswordCorrect == false){
+        return res.status(400).json({
+            status: 'WP',
+            message: 'You Entered Wrong Password'
         })
     }
-    else{
-        res.status(200).json({
-            status: 'fail',
-            message: 'Password is incorrect'
-        })   
-    }
+
+    sendJwt.createSendToken(isOrganizationExists, 200, res);
 }
 
 exports.getAllOrganization = async(req, res) => {

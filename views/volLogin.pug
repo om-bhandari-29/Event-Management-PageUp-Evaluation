@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title #{title}
+    link(rel='stylesheet', href='/css/style.css')
+    
+  body
+    .main_btn
+      .in
+        .signin
+          h3 Volunteer SignIn
+          form(action="")
+            input#email(type="text", placeholder="email", value="", required)
+            br
+            input#password(type="text", placeholder="password", value="", required)
+            br
+            input#volLoginBtn(type="button", value="Submit")
+            br
+
+
+    script(src='/js/volLogin.js') 
+          

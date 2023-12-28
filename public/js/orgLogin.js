@@ -1,7 +1,7 @@
-const login = async(email, password) =>{
+const orgLogin = async(email, password) =>{
 
     try{
-        const res = await fetch('/api/volunteer/signin', {
+        const res = await fetch('/api/organization/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -14,20 +14,24 @@ const login = async(email, password) =>{
 
         if(res.status === 'success'){
             alert("success")
-            location.assign('/volunteerHome');
+            // location.assign('/volunteerHome');
         }
         else
-        if(res.status === 'UDN'){
-            alert("user does not exits with given mail id");
+        // if(res.status === 'UDN'){
+        //     alert("user does not exits with given mail id");
+        //     location.assign('/login')
+        // }
+        if(res.status === 'ODN'){
+            alert("organization does not exits with given mail id");
             location.assign('/login')
         }
-        else if(res.status === 'wrong password'){
+        else if(res.status === 'WP'){
             alert("Wrong Password Entered");
             location.reload(true);
         }
         else{
-            alert("Password Is Incorrect");
-            location.assign('/login')
+            alert("Some Error occured");
+            location.assign('/')
         }
     }
     catch(err){
@@ -35,10 +39,10 @@ const login = async(email, password) =>{
     }
 }
 
-const loginClick = document.getElementById('loginBtn');
-if(loginClick)
+const orgLoginClick = document.getElementById('orgLoginBtn');
+if(orgLoginClick)
 {
-    loginClick.addEventListener('click', e=>{
+    orgLoginClick.addEventListener('click', e=>{
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
     
@@ -47,7 +51,7 @@ if(loginClick)
         }
         else{
             // console.log(email, password);
-            login(email, password);
+            orgLogin(email, password);
         }
     })
 }

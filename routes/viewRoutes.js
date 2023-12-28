@@ -7,7 +7,8 @@ router.use(volunteerController.LoggedInUser);
 
 router.get('/', viewsController.index);
 
-router.get('/login', viewsController.login);
+router.get('/volLogin', viewsController.volLogin);
+router.get('/orgLogin', viewsController.orgLogin);
 router.get('/volunteerSignup', viewsController.volunteerSignup);
 router.get('/volunteerHome', viewsController.volunteerHome);
 

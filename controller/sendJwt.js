@@ -19,8 +19,14 @@ exports.createSendToken = (user, statusCode, res) => {
   
     // Remove password from output
     user.password = undefined;
-  
+
+    // var statusMsg = "success";
+    // if(check == volSignin)
+    //   statusMsg = volSignin
+    // else if(check == orgSignin)
+    //   statusMsg = orgSignin
+
     res.status(statusCode).json({
-      status: 'success',
+      status: "success",
     });
 };

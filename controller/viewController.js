@@ -6,8 +6,16 @@ exports.index = async(req, res) => {
     });
 }
 
-exports.login = async(req, res) => {
-    res.status(200).render('login', {
+exports.volLogin = async(req, res) => {
+    res.status(200).render('volLogin', {
+        title: 'Login'
+        // allPosts: post
+        // allPosts: withDuration
+    });
+}
+
+exports.orgLogin = async(req, res) => {
+    res.status(200).render('orgLogin', {
         title: 'Login'
         // allPosts: post
         // allPosts: withDuration

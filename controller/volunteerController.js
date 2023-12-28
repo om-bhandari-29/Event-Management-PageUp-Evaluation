@@ -5,10 +5,10 @@ const jwt = require("jsonwebtoken");
 exports.signup = async (req, res) => {
     const {name, email, mobileNumber, password, confirmPassword, place, skills} = req.body;
     // const email = req.body.email;
-    let existingUser;
+    let existingVolunteer;
 
     try{
-        existingUser = await Volunteer.findOne({email});
+        existingVolunteer = await Volunteer.findOne({email});
     }
     catch(err){
         console.log(err);
@@ -19,20 +19,14 @@ exports.signup = async (req, res) => {
         })
     }
 
-    if(existingUser){
+    if(existingVolunteer){
         return res.status(400).json({
-          user: existingUser,
+          user: existingVolunteer,
           status: "UAE",
           message: "User already exists with the given email id"
         });
     }
 
-    // if(password != confirmPassword){
-    //     return res.status(400).json({
-    //         status: "error",
-    //         message: "password not matched"
-    //       });
-    // }
     try{
         const newVolunteer = new Volunteer({
             name,
@@ -44,7 +38,11 @@ exports.signup = async (req, res) => {
         });
 
         const newVol = await newVolunteer.save();
-        sendJwt.createSendToken(newVol, 200, res);
+        // sendJwt.createSendToken(newVol, 200, res, volSignup);
+        res.status(200).json({
+            status: "success",
+            message: "Volunteer registered successfully"
+        })
     }
     catch(err){
         console.log("error in volunteerController.js line 44");
@@ -59,13 +57,13 @@ exports.signup = async (req, res) => {
 
 exports.signin = async(req, res) => {
     const {email, password} = req.body;
-    let isUserExists;
+    let isVolunteerExists;
 
     try{
-        isUserExists = await Volunteer.findOne({email});
+        isVolunteerExists = await Volunteer.findOne({email});
     }
     catch(err){
-        console.log("Error at volunteerAuthController.js line 60");
+        console.log("Error at volunteerController.js line 62");
         res.status(500).json({
             status: 'err',
             message: 'error while checking that user already exists or not',
@@ -73,23 +71,23 @@ exports.signin = async(req, res) => {
         })
     }
 
-    if(!isUserExists){
+    if(!isVolunteerExists){
         return res.status(404).json({
             status: 'UDN',
             message: 'user does not exists with the given mail id'
         })
     }
 
-    const isPasswordCorrect = (isUserExists.password == password)? true : false;
+    const isPasswordCorrect = (isVolunteerExists.password == password)? true : false;
 
     if(isPasswordCorrect == false){
         res.status(400).json({
-            status: 'wrong password',
+            status: 'WP',
             message: 'Provided password is wrong'
         })
     }
 
-    sendJwt.createSendToken(isUserExists, 200, res);
+    sendJwt.createSendToken(isVolunteerExists, 200, res);
 }
 
 exports.signout = async (req, res) =>{

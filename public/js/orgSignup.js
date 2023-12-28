@@ -24,7 +24,7 @@ const signup = async(name, email, currentOfficePlace, mainBranch, password) =>{
             location.assign('/')
         }
         else
-        if(res.status === 'ECH'){
+        if(res.status === 'ECO'){
             alert("Error checking organization");
             location.assign('/')
         }
