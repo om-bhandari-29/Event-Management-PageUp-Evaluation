@@ -11,6 +11,7 @@ router.get('/volLogin', viewsController.volLogin);
 router.get('/orgLogin', viewsController.orgLogin);
 router.get('/volunteerSignup', viewsController.volunteerSignup);
 router.get('/volunteerHome', viewsController.volunteerHome);
+router.get('/allVolunteer', viewsController.allVolunteer);
 
 router.get('/organizationSignup', viewsController.organizationSignup);
 

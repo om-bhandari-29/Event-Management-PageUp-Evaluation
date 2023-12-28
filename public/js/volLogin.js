@@ -19,7 +19,7 @@ const volLogin = async(email, password) =>{
         else
         if(res.status === 'UDN'){
             alert("user does not exits with given mail id");
-            location.assign('/login')
+            location.assign('/volunteerSignup')
         }
         else if(res.status === 'WP'){
             alert("Wrong Password Entered");

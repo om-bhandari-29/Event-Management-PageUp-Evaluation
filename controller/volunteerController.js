@@ -74,7 +74,7 @@ exports.signin = async(req, res) => {
     if(!isVolunteerExists){
         return res.status(404).json({
             status: 'UDN',
-            message: 'user does not exists with the given mail id'
+            message: 'user does not exists with the given mail id line 77'
         })
     }
 
@@ -198,12 +198,15 @@ exports.LoggedInUser = async (req, res, next) =>{
   
         // THERE IS A LOGGED IN USER
         res.locals.user = currentVol;
-        // console.log(res.locals.user._id);
+        console.log(res.locals.user._id);
         return next();
       } 
       catch (err) {
         return next();
       }
     }
+    // else{
+    //     console.log("no user")
+    // }
     next();
   };

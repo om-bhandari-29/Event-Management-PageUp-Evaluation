@@ -1,3 +1,5 @@
+const Volunteer = require('./../model/volunteerModel.js');
+
 exports.index = async(req, res) => {
     res.status(200).render('index', {
         title: 'Home'
@@ -43,5 +45,20 @@ exports.organizationSignup = async(req, res) => {
         title: 'Sign Up'
         // allPosts: post
         // allPosts: withDuration
+    });
+}
+
+exports.allVolunteer = async(req, res) => {
+    var allVolunteers;
+    try{
+        allVolunteers  = await Volunteer.find();
+    }
+    catch(err){
+        console.log(err);
+    }
+
+    res.status(200).render('allVolunteer', {
+        title: 'All Volunteer',
+        volunteers: allVolunteers
     });
 }

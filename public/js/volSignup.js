@@ -16,7 +16,7 @@ const signup = async(name, email, place, skills, password) =>{
         }).then((res)=> res.json())
 
         if(res.status === 'UAE'){
-            alert("USER ALREADY EXIST")
+            alert("VOLUNTEER ALREADY EXIST")
             location.assign('/volunteerSignup')
         }
         else
