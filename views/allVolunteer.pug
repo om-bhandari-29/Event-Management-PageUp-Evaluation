@@ -14,7 +14,7 @@ html(lang='en')
     nav
       .navbar
         //- a(href='/volunteerHome') Volunteer Management System
-        h1 Volunteer Management System
+        h1 Volunteer Management System | All Volunteers
 
     if(volunteers.length == 0)
         h1(style='text-align: center;') There are no Volunteers to display
@@ -22,16 +22,16 @@ html(lang='en')
     else
         .all_vol_main_btn
             each volunteer in volunteers
-                .con
-                    img(src='/img/ptofile4.jpg', alt='', height='150', width='250')
-                    .con_content
-                        p
-                        b Name : 
-                        | #{volunteer.name}
-                        //- | p="hellp"
-                        p
-                        b Skills : 
-                        |  #{volunteer.skills}
-                        p
-                        b place :
-                        |  #{volunteer.place}
+              .con
+                  img(src='/img/ptofile4.jpg', alt='', height='150', width='250')
+                  .con_content
+                      p
+                      b Name : 
+                      | #{volunteer.name}
+                      //- | p="hellp"
+                      p
+                      b Skills : 
+                      |  #{volunteer.skills}
+                      p
+                      b place :
+                      |  #{volunteer.place}

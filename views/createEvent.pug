@@ -13,16 +13,18 @@ html(lang='en')
       .signup
         h3 Enter Event Details
         form(action='')
-          input(type='text', placeholder='Name*', required='')
+          input#name(type='text', placeholder='Name*', required='')
           br
-          input(type='text', placeholder='Place*', required='')
+          input#place(type='text', placeholder='Place*', required='')
           br
-          input(type='date', placeholder='Date*', required='')
+          input#date(type='date', placeholder='Date*', required='')
           br
-          input(type='text', placeholder='Description*', required='')
+          input#description(type='text', placeholder='Description*', required='')
           br
-          input(type='text', placeholder='Start-time *', required='')
+          input#startTime(type='time', placeholder='Start-time *', required='')
           br
-          input(type='password', placeholder='End-time*', required='')
+          input#endTime(type='time', placeholder='End-time*', required='')
           br
-          input(type='button', value='Create Event')
+          input#create_event_btn(type='button', value='Create Event')
+          
+  script(src="/js/createEvent.js") 

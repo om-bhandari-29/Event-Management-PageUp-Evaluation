@@ -16,7 +16,7 @@ const signup = async(name, email, currentOfficePlace, mainBranch, password) =>{
 
         if(res.status === 'OAE'){
             alert("ORGANIZATION ALREADY EXIST")
-            location.assign('/organizationSignup')
+            // location.assign('/organizationSignup')
         }
         else
         if(res.status === 'success'){
@@ -26,7 +26,7 @@ const signup = async(name, email, currentOfficePlace, mainBranch, password) =>{
         else
         if(res.status === 'ECO'){
             alert("Error checking organization");
-            location.assign('/')
+            // location.assign('/')
         }
         else{
             alert("some error occured");

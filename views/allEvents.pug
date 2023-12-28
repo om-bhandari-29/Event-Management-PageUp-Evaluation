@@ -14,28 +14,33 @@ html(lang='en')
     nav
       .navbar
         //- a(href='/volunteerHome') Volunteer Management System
-        h1 Volunteer Management System
+        h1 Volunteer Management System | All Events
     
-      .all_vol_main_btn
+    .all_vol_main_btn
+      each event in events
         .all_events_con
-            img(src='/img/event.jpg', alt='', height='150', width='250')
-            .all_events_con_content
-                p
-                b Name : 
-                //- | #{volunteer.name}
-                //- | p="hellp"
-                p
-                b Place : 
-                //- |  #{volunteer.skills}
-                p
-                b Date : 
-                //- |  #{volunteer.skills}
-                p
-                b Start Time :
-                //- |  #{volunteer.place}
-                p
-                b End Time :
-                //- |  #{volunteer.place}
-                p
-                b Organized By :
-                //- |  #{volunteer.place}
+              img(src='/img/event.jpg', alt='', height='150', width='250')
+              .all_events_con_content
+                  p
+                  b Name : 
+                  | #{event.name}
+                  //- | p="hellp"
+                  p
+                  b Place : 
+                  |  #{event.place}
+                  p
+                  b Date : 
+                  |  #{event.date}
+                  p
+                  b Description : 
+                  |  #{event.description}
+                  p
+                  b Start Time :
+                  |  #{event.startTime}
+                  p
+                  b End Time :
+                  |  #{event.endTime}
+                  p
+                  b Organized By :
+                  |  #{event.createdBy}
+                  p 

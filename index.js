@@ -41,8 +41,10 @@ app.use(morgan("common"));
 const volunteerRoutes = require('./routes/volunteerRoutes.js');
 const organizationRoutes = require('./routes/organizationRoutes.js');
 const viewsRoutes = require('./routes/viewRoutes.js');
+const eventRoutes = require('./routes/eventRoutes.js');
 
 
 app.use('/', viewsRoutes);
 app.use('/api/volunteer', volunteerRoutes);
 app.use('/api/organization', organizationRoutes);
+app.use('/event', eventRoutes);

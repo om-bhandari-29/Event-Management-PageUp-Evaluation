@@ -17,17 +17,13 @@ const orgLogin = async(email, password) =>{
             location.assign('/organizationHome');
         }
         else
-        // if(res.status === 'UDN'){
-        //     alert("user does not exits with given mail id");
-        //     location.assign('/login')
-        // }
         if(res.status === 'ODN'){
             alert("organization does not exits with given mail id");
-            location.assign('/organizationSignup')
+            // location.assign('/organizationSignup')
         }
         else if(res.status === 'WP'){
             alert("Wrong Password Entered");
-            location.reload(true);
+            // location.reload(true);
         }
         else{
             alert("Some Error occured");

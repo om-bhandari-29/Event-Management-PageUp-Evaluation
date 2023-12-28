@@ -27,6 +27,15 @@ const eventSchema = new mongoose.Schema({
     endTime: {
         type: String,
         require: true
+    },
+    createdBy: {
+        type: String,
+        require: true
+    },
+    
+    createdById: {
+        type: mongoose.Schema.ObjectId,
+        require: true
     }
 })
 

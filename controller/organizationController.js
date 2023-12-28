@@ -186,6 +186,7 @@ exports.LoggedInOrganization = async (req, res, next) =>{
   
         // THERE IS A LOGGED IN USER
         res.locals.organization = currentOrg;
+        req.loggedInOrg = currentOrg;
         console.log("organization : "+res.locals.organization);
         return next();
       } 

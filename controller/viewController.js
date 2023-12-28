@@ -1,4 +1,5 @@
 const Volunteer = require('./../model/volunteerModel.js');
+const Event = require('./../model/eventModel.js');
 
 exports.index = async(req, res) => {
     res.status(200).render('index', {
@@ -64,8 +65,17 @@ exports.allVolunteer = async(req, res) => {
 }
 
 exports.allEvents = async(req, res) => {
+    var events;
+    try{
+        events = await Event.find();
+    }
+    catch(err){
+        console.log(err);
+    }
+
     res.status(200).render('allEvents', {
         title: 'All Events',
+        events: events
     });
 }
 
