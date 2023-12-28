@@ -13,7 +13,7 @@ html(lang='en')
       .image_side
         div
           img(src='img/ptofile4.jpg', alt='')
-          button(type='submit') DELETE
+          button#vol_del_btn(data-volid=`${volunteer._id}`) DELETE
       // image side end
       .contend
         h2 Volunteer details
@@ -42,3 +42,4 @@ html(lang='en')
           b Address :
           | #{volunteer.address}
         hr
+  script(src="/js/delVol.js") 

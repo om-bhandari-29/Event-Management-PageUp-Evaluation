@@ -138,6 +138,7 @@ exports.getAllVolunteer = async(req, res) => {
 
 exports.deleteVolunteer = async(req, res) => {
     const id = req.params.id;
+    // console.log("delete vol id : "+id)
 
     try{
         await Volunteer.findByIdAndDelete({_id: id});
@@ -150,7 +151,7 @@ exports.deleteVolunteer = async(req, res) => {
     }
 
     res.status(200).json({
-        status: 'Success',
+        status: 'success',
         message: 'volunteer deleted successfully',
     })
 }
