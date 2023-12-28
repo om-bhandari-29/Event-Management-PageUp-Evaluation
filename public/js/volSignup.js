@@ -1,4 +1,4 @@
-const signup = async(name, email, place, skills, password) =>{
+const signup = async(name, email, place, skills, password, number) =>{
     try{
         const res = await fetch('/api/volunteer/signup', {
             method: 'POST',
@@ -11,7 +11,8 @@ const signup = async(name, email, place, skills, password) =>{
                 email: email,
                 place: place,
                 skills: skills,
-                password: password
+                password: password,
+                number: number
             })
         }).then((res)=> res.json())
 
@@ -45,7 +46,7 @@ if(vol_signup)
 {
     vol_signup.addEventListener('click', e => {
         const name = document.getElementById('name').value;
-        // const mobileNumber = document.getElementById('mobileNumber').value;
+        const number = document.getElementById('number').value;
         const email = document.getElementById('email').value;
         const place = document.getElementById('place').value;
         const skills = document.getElementById('skills').value;
@@ -62,7 +63,7 @@ if(vol_signup)
             location.assign('/volunteerSignup');
         }
         else{
-            signup(name, email, place, skills, password);
+            signup(name, email, place, skills, password, number);
         }
     })
 }

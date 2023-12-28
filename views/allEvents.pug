@@ -1,0 +1,40 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    |  
+    title All Volunteer
+    link(rel='stylesheet', href='/css/style.css')
+    style.
+      .main_btn{
+      height: 70%;
+      }
+  body
+    nav
+      .navbar
+        a(href='/volunteerHome') Volunteer Management System
+    
+      .all_vol_main_btn
+        .all_events_con
+            img(src='/img/event.jpg', alt='', height='150', width='250')
+            .all_events_con_content
+                p
+                b Name : 
+                //- | #{volunteer.name}
+                //- | p="hellp"
+                p
+                b Place : 
+                //- |  #{volunteer.skills}
+                p
+                b Date : 
+                //- |  #{volunteer.skills}
+                p
+                b Start Time :
+                //- |  #{volunteer.place}
+                p
+                b End Time :
+                //- |  #{volunteer.place}
+                p
+                b Organized By :
+                //- |  #{volunteer.place}

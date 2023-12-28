@@ -62,3 +62,36 @@ exports.allVolunteer = async(req, res) => {
         volunteers: allVolunteers
     });
 }
+
+exports.allEvents = async(req, res) => {
+    // var allVolunteers;
+    // try{
+    //     allVolunteers  = await Volunteer.find();
+    // }
+    // catch(err){
+    //     console.log(err);
+    // }
+
+    res.status(200).render('allEvents', {
+        title: 'All Events',
+        // volunteers: allVolunteers
+    });
+}
+
+exports.getVolunteerDetails = async(req, res) => {
+    const volId = req.params.volId;
+    console.log(volId);
+    var volunteer;
+    try{
+        volunteer  = await Volunteer.findById(volId);
+    }
+    catch(err){
+        console.log(err);
+    }
+    
+    // console.log(volunteer);
+    res.status(200).render('volunteerDetails', {
+        title: 'Volunteer Details',
+        volunteer: volunteer
+    });
+}

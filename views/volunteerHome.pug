@@ -18,8 +18,11 @@ html(lang='en')
     .vol_home_main_btn
       a(href="/allVolunteer") 
         button#VHF.vol_home_btn All Volunteer
-        
-      button#VHS.vol_home_btn All Event
-      button#VHT.vol_home_btn My profile
+
+      a(href="/allEvents")  
+        button#VHS.vol_home_btn All Event
+
+      a(href=`${user._id}`)
+        button#VHT.vol_home_btn My profile
 
   script(src='/js/logout.js') 

@@ -23,7 +23,7 @@ const orgLogin = async(email, password) =>{
         // }
         if(res.status === 'ODN'){
             alert("organization does not exits with given mail id");
-            location.assign('/login')
+            location.assign('/organizationSignup')
         }
         else if(res.status === 'WP'){
             alert("Wrong Password Entered");

@@ -14,9 +14,20 @@ const volunteerSchema = new mongoose.Schema({
         unique: true
     },
 
-    mobileNumber : {
-        type: Number,
-        // require: true,
+    // mobileNumber : {
+    //     type: Number,
+    //     // require: true,
+    // },
+    number: {
+        type: String,
+        required: true,
+        validate: {
+          validator: function (value) {
+            // Example: Validate that the number contains only digits and has a specific length
+            return /^\d{7,14}$/.test(value); // Change the regex pattern as per your requirement
+          },
+          message: 'Number should contain only digits and be between 9 to 10 characters',
+        },
     },
 
     yearOfbirth: {
