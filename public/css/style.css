@@ -72,7 +72,9 @@ html,body{
     background-size: cover;
     cursor: pointer;
 }
-
+#VHF:hover{
+    font-size: bold;
+}
 #VHS{
     background: url(/img/evn1.jpg);
     background-size: cover;
