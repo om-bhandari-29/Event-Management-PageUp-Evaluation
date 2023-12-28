@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Create Event
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    nav
+      .navbar
+        a(href='#') Volunteer Management System
+    .center
+      .signup
+        h3 Enter Event Details
+        form(action='')
+          input(type='text', placeholder='Name*', required='')
+          br
+          input(type='text', placeholder='Place*', required='')
+          br
+          input(type='date', placeholder='Date*', required='')
+          br
+          input(type='text', placeholder='Description*', required='')
+          br
+          input(type='text', placeholder='Start-time *', required='')
+          br
+          input(type='password', placeholder='End-time*', required='')
+          br
+          input(type='button', value='Create Event')

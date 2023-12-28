@@ -10,40 +10,29 @@ html(lang='en')
   body
     nav 
       .navbar
-        a(href='/volunteerHome')= `Welcome ${user.name}`
+        //- a(href='/organizatioHome')= `Welcome ${organization.name}`
+        h1= `Welcome ${organization.name}`
         
     .detail_user
       // image side start
       .image_side
         div
-          img(src='img/ptofile4.jpg', alt='')
-          button#vol_del_btn(data-volid=`${volunteer._id}`) DELETE
+          img(src='/img/company.jpg', alt='')
+          button#vol_del_btn(data-volid=`${organization._id}`) DELETE
       // image side end
       .contend
         h2 Volunteer details
         hr
         p
           b Name : 
-          |  #{volunteer.name}
+          |  #{organization.name}
         hr
         p
           b Email id: 
-          | #{volunteer.email}
-        hr
-        p
-          b Phone no : 
-          | #{volunteer.number}
-        hr
-        p
-          b Gender : 
-          | #{volunteer.gender}
-        hr
-        p
-          b DOB : 
-          | #{volunteer.dob}
+          | #{organization.email}
         hr
         p
           b Address :
-          | #{volunteer.address}
+          | #{organization.address}
         hr
-  script(src="/js/delVol.js") 
+//-   script(src="/js/delVol.js") 

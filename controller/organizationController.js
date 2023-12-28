@@ -143,7 +143,7 @@ exports.deleteOrganization = async(req, res) => {
 }
 
 exports.getOrganizationDetails = async(req, res) => {
-    const id = req.params.id;
+    const id = req.params.orgId;
     let organization;
 
     try{
@@ -169,3 +169,32 @@ exports.getOrganizationDetails = async(req, res) => {
         newOrganization
     })
 }
+
+exports.LoggedInOrganization = async (req, res, next) =>{
+    console.log("jwt organization controller : "+req.cookies.jwt);
+    if(req.cookies.jwt) 
+    {
+        try {
+            const jwtToken = req.cookies.jwt;
+            const decoded =  jwt.verify(jwtToken, process.env.JWT_SECRET);
+
+            const currentOrg = await Organization.findById(decoded.id);
+
+            if (!currentOrg) {
+                return next();
+            }
+  
+        // THERE IS A LOGGED IN USER
+        res.locals.organization = currentOrg;
+        console.log("organization : "+res.locals.organization);
+        return next();
+      } 
+      catch (err) {
+        return next();
+      }
+    }
+    // else{
+    //     console.log("no user")
+    // }
+    next();
+};

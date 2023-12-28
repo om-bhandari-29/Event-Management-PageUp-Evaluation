@@ -64,17 +64,14 @@ exports.allVolunteer = async(req, res) => {
 }
 
 exports.allEvents = async(req, res) => {
-    // var allVolunteers;
-    // try{
-    //     allVolunteers  = await Volunteer.find();
-    // }
-    // catch(err){
-    //     console.log(err);
-    // }
-
     res.status(200).render('allEvents', {
         title: 'All Events',
-        // volunteers: allVolunteers
+    });
+}
+
+exports.createEvent = async(req, res) => {
+    res.status(200).render('createEvent', {
+        title: 'Create Event',
     });
 }
 
@@ -93,5 +90,20 @@ exports.getVolunteerDetails = async(req, res) => {
     res.status(200).render('volunteerDetails', {
         title: 'Volunteer Details',
         volunteer: volunteer
+    });
+}
+
+exports.organizationHome = async(req, res) => {
+    res.status(200).render('organizationHome', {
+        title: 'Organization Home'
+        // allPosts: post
+        // allPosts: withDuration
+    });
+}
+exports.getOrganizationDetails = async(req, res) => {
+    res.status(200).render('organizationDetails', {
+        title: 'Organization Details'
+        // allPosts: post
+        // allPosts: withDuration
     });
 }
