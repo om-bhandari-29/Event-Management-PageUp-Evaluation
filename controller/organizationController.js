@@ -3,7 +3,7 @@ const sendJwt = require('./sendJwt.js');
 const jwt = require("jsonwebtoken");
 
 exports.signup = async(req, res) => {
-    const { name, email, mobileNumber, password, confirmPassword, establishedOn, mainBranch, place } = req.body;
+    const { name, email, currentOfficePlace,  password, mainBranch } = req.body;
 
     let existingOrganization;
 
@@ -30,11 +30,9 @@ exports.signup = async(req, res) => {
         const newOrganization = new Organization({
             name,
             email,
-            mobileNumber,
             password,
-            establishedOn,
+            currentOfficePlace,
             mainBranch,
-            place
         });
 
         const newOrg = await newOrganization.save();
