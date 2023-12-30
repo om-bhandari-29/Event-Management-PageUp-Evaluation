@@ -1,16 +1,7 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title #{title}
-    link(rel='stylesheet', href='/css/style.css')
+extends base
 
-  body
-    nav
-      .navbar
-        a(href='/') Volunteer Management System
-
+block content
+  body 
     .center
       .signup
         img(src='/img/lock.png', width='80', height='40', alt='')
@@ -19,8 +10,6 @@ html(lang='en')
         form(action='')
           input#name(type='text', placeholder='Full Name*', required='')
           br
-          //- input#mobileNumber(type='tel', placeholder='Mobile no', required='', pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}")
-          //- br
           input#email(type='email', placeholder='Email*', required='')
           br
           input#place(type='text', placeholder='Place', required='')

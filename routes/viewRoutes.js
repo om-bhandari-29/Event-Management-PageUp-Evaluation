@@ -9,9 +9,8 @@ router.use(organizationController.LoggedInOrganization);
 
 router.get('/', viewsController.index);
 
-router.get('/volLogin', viewsController.volLogin);
-router.get('/orgLogin', viewsController.orgLogin);
-router.get('/volunteerSignup', viewsController.volunteerSignup);
+router.get('/volunteerViews/volLogin', viewsController.volLogin);
+router.get('/volunteerViews/volunteerSignup', viewsController.volunteerSignup);
 router.get('/volunteerHome', viewsController.volunteerHome);
 router.get('/allVolunteer', viewsController.allVolunteer);
 router.get('/allEvents', viewsController.allEvents);
@@ -19,8 +18,9 @@ router.get('/myEvents', viewsController.myEvents);
 router.get('/createEvent', viewsController.createEvent);
 
 
+router.get('/organizationViews/orgLogin', viewsController.orgLogin);
+router.get('/organizationViews/organizationSignup', viewsController.organizationSignup);
 router.get('/organizationHome', viewsController.organizationHome);
-router.get('/organizationSignup', viewsController.organizationSignup);
 router.get('/:volId', viewsController.getVolunteerDetails);
 router.get('/org/:orgId', viewsController.getOrganizationDetails);
 
