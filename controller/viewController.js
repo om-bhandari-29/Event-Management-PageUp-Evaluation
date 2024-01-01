@@ -112,6 +112,24 @@ exports.getVolunteerDetails = async(req, res) => {
     });
 }
 
+exports.getEventDetails = async(req, res) => {
+    const id = req.params.id;
+    // console.log(id);
+    var event;
+    try{
+        event  = await Event.findById(id);
+    }
+    catch(err){
+        console.log(err);
+    }
+    
+    // console.log(volunteer);
+    res.status(200).render('eventDetails', {
+        title: 'Event Details',
+        event: event
+    });
+}
+
 exports.organizationHome = async(req, res) => {
     res.status(200).render('organizationHome', {
         title: 'Organization Home'

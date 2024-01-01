@@ -1,3 +1,6 @@
+let remoteDate = new Date();
+// remoteDate = remoteDate.toLocaleDateString('en-GB');
+
 const createEvent = async(name, place, date, description, startTime, endTime) =>{
     try{
         const res = await fetch('/event/create', {
@@ -47,7 +50,20 @@ if(createEventBtnClick){
             return location.assign('/event/create');
         }
         else{
-            createEvent(name, place, date, description, startTime, endTime);
+            const currDate = remoteDate.getDate();
+            const currYear = remoteDate.getFullYear();
+            const currMonth = remoteDate.getMonth();
+
+            const inputedYear = date.split('-')[0];
+            const inputeddate = date.split('-')[2];
+            const inputedMonth = date.split('-')[1];
+            // console.log(remoteDate.getFullYear());
+
+            if((inputedYear<currYear) || (inputedMonth<currMonth) || (inputeddate<currDate)){
+                alert("Please Choose right date");
+            }
+            else
+                createEvent(name, place, date, description, startTime, endTime);
         }
     })
 }

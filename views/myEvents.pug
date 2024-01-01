@@ -6,6 +6,8 @@ html(lang='en')
     |  
     title All Volunteer
     link(rel='stylesheet', href='/css/style.css')
+    link(rel="shortcut icon", href='/img/eventManagementFav.png', type="image/x-icon")
+    
     style.
       .main_btn{
       height: 70%;
@@ -37,12 +39,6 @@ html(lang='en')
                     b Place : 
                     |  #{event.place}
                     p
-                    b Date : 
-                    |  #{event.date}
-                    p
-                    b Description : 
-                    |  #{event.description}
-                    p
                     b Start Time :
                     |  #{event.startTime}
                     p
@@ -52,5 +48,8 @@ html(lang='en')
                     b Organized By :
                     |  #{event.createdBy}
                     p 
-  
+
+                a(href=`/event/${event._id}`)     
+                  button#event_del_btn(data-eventid=`${event._id}`) More Details 
+
   script(src="/js/logout.js") 

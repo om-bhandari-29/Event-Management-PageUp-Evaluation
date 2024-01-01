@@ -12,36 +12,37 @@ html(lang='en')
     nav 
       .navbar
         //- a(href='/organizatioHome')= `Welcome ${organization.name}`
-        h1= `Welcome ${organization.name}`
+        //- h1= `Welcome ${organization.name}`
+        h1 Welcome 
         
     .detail_user
       // image side start
       .image_side
         div
-          img(src='/img/company.jpg', alt='')
+          img(src='/img/eventDetails.jpg', alt='')
           //- button#vol_del_btn(data-volid=`${organization._id}`) DELETE
       // image side end
       .contend
-        h2 Volunteer details
+        h2 Event details
         hr
         p
           b Name : 
-          |  #{organization.name}
+          |  #{event.name}
         hr
         p
-          b Email id: 
-          | #{organization.email}
+          b Place: 
+          |  #{event.place}
         hr
         p
-          b Current Office Place :
-          | #{organization.currentOfficePlace}
+          b Date :
+          |  #{event.date}
         hr
         p
-          b Address :
-          | #{organization.address}
+          b description :
+          |  #{event.description}
         hr
-        p
-          b Main Branch :
-          | #{organization.mainBranch}
-        hr
+        //- p
+        //-   b Main Branch :
+        //-   | #{event.mainBranch}
+        //- hr
 //-   script(src="/js/delVol.js") 

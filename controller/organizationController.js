@@ -44,7 +44,7 @@ exports.signup = async(req, res) => {
         })
     }
     catch(err){
-        console.log("error in organizationAuthController.js line 44");
+        console.log("error in organizationAuthController.js line 47");
         console.log("Error : "+err);
         res.status(500).json({
             // status: 'err',
@@ -163,13 +163,13 @@ exports.getOrganizationDetails = async(req, res) => {
 
     res.status(200).json({
         status: 'Success',
-        message: 'volunteer details fetched successfully',
+        message: 'Organization details fetched successfully',
         newOrganization
     })
 }
 
 exports.LoggedInOrganization = async (req, res, next) =>{
-    console.log("jwt organization controller : "+req.cookies.jwt);
+    // console.log("jwt organization controller : "+req.cookies.jwt);
     if(req.cookies.jwt) 
     {
         try {
@@ -185,7 +185,7 @@ exports.LoggedInOrganization = async (req, res, next) =>{
         // THERE IS A LOGGED IN USER
         res.locals.organization = currentOrg;
         req.loggedInOrg = currentOrg;
-        console.log("organization : "+res.locals.organization);
+        // console.log("organization : "+res.locals.organization);
         return next();
       } 
       catch (err) {

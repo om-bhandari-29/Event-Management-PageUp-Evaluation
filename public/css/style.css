@@ -205,8 +205,7 @@ form input {
     box-shadow:2px 5px 10px 4px black;
 }
 .all_events_con {
-    /* height: fit-content; */
-    height: 492px;
+    height: 384px;
      width: 238px;
      margin-top: 50px;
      border-radius: 20px;
@@ -232,6 +231,18 @@ form input {
     height: 100%;
 }
 
+#event_del_btn{
+   background-color: palevioletred;
+   margin-left: 59px;
+   height: 24px;
+   width: 100px; 
+   border-radius: 13px;
+}
+
+#event_del_btn:hover{
+    font-weight: bold;
+    box-shadow:1px 1px 1px 1px rgb(236, 37, 37);
+}
 .image_side {
     width: 30%;
 }

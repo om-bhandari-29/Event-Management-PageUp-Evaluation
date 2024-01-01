@@ -52,12 +52,12 @@ if(org_signup)
 
         if(!name || !email || !password || !confirmpassword || !currentOfficePlace || !mainBranch){
             alert("Enter full Details");
-            return location.assign('/organizationSignup');
+            // return location.assign('/organizationSignup');
         }
 
         if(password != confirmpassword){
             alert("Password Doesn't match");
-            location.assign('/organizationSignup');
+            // location.assign('/organizationSignup');
         }
         else{
             signup(name, email, currentOfficePlace, mainBranch, password);

@@ -24,11 +24,31 @@ exports.createEvent = async(req, res) => {
         })
     }
     catch(err){
-        console.log("Error : "+err);
+        console.log(err);
         res.status(500).json({
-            // status: 'err',
+            status: 'err',
             message: 'error while creating new event',
             err
         })
     }
+}
+
+exports.getEventDetails = async(req, res) => {
+    const id = req.params.id;
+    let event;
+    try{
+        event = await Event.findById(id);
+    }
+    catch(err){
+        console.log("at eventController.js line 43 "+err);
+        return res.status(500).json({
+            status: 'err',
+            err
+        })
+    }
+
+    res.status(200).json({
+        statur: 'success',
+        message: 'retrieved Event details successfully'
+    })
 }

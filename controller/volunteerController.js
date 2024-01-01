@@ -46,7 +46,7 @@ exports.signup = async (req, res) => {
         })
     }
     catch(err){
-        console.log("error in volunteerController.js line 44");
+        console.log("error in volunteerController.js line 49");
         console.log("Error : "+err);
         res.status(500).json({
             status: 'err',
@@ -137,7 +137,7 @@ exports.getAllVolunteer = async(req, res) => {
 }
 
 exports.deleteVolunteer = async(req, res) => {
-    const id = req.params.id;
+    const id = req.params.dId;
     // console.log("delete vol id : "+id)
 
     try{
@@ -158,7 +158,7 @@ exports.deleteVolunteer = async(req, res) => {
 
 exports.getVolunteerDetails = async(req, res) => {
     const id = req.params.id;
-    let volunteer;
+    var volunteer;
 
     try{
         volunteer = await Volunteer.findById({_id: id});

@@ -6,5 +6,6 @@ const organizationController = require('./../controller/organizationController.j
 router.use(organizationController.LoggedInOrganization);
 
 router.post('/create', eventController.createEvent);
+// router.get('/:id', )
 
 module.exports = router;
