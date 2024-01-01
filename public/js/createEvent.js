@@ -62,6 +62,9 @@ if(createEventBtnClick){
             if((inputedYear<currYear) || (inputedMonth<currMonth) || (inputeddate<currDate)){
                 alert("Please Choose right date");
             }
+            else if(startTime === endTime){
+                alert("Start Time and End Time cannot be same");
+            }
             else
                 createEvent(name, place, date, description, startTime, endTime);
         }

@@ -12,15 +12,15 @@ html(lang='en')
     nav 
       .navbar
         //- a(href='/organizatioHome')= `Welcome ${organization.name}`
-        //- h1= `Welcome ${organization.name}`
-        h1 Welcome 
+        h1= `Welcome ${organization.name}`
+        //- h1 Welcome 
         
     .detail_user
       // image side start
       .image_side
         div
           img(src='/img/eventDetails.jpg', alt='')
-          //- button#vol_del_btn(data-volid=`${organization._id}`) DELETE
+          button#event_del_btn(data-eventid=`${event._id}`) DELETE
       // image side end
       .contend
         h2 Event details
@@ -38,11 +38,16 @@ html(lang='en')
           |  #{event.date}
         hr
         p
+          b Start Time :
+          |  #{event.startTime}
+        hr
+        p
+          b End Time :
+          |  #{event.endTime}
+        hr
+        p
           b description :
           |  #{event.description}
         hr
-        //- p
-        //-   b Main Branch :
-        //-   | #{event.mainBranch}
-        //- hr
-//-   script(src="/js/delVol.js") 
+
+  script(src="/js/delEvent.js") 
