@@ -221,6 +221,27 @@ form input {
     box-shadow:2px 5px 10px 4px black;
 }
 
+#all_event_anchor{
+    text-decoration: none;
+}
+
+.my_events_con {
+    height: 389px;
+     width: 238px;
+     margin-top: 50px;
+     border-radius: 20px;
+     overflow: hidden;
+     background-color: white;
+     margin-left: 15px;
+     box-shadow:2px 5px 10px 1px black;
+}
+.my_events_con_content{
+    padding-left: 13%;
+}
+.my_events_con:hover{
+    box-shadow:2px 5px 10px 4px black;
+}
+
 .detail_user{
     box-shadow: 1px 1px black;
     margin: 10px;

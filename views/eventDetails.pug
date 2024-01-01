@@ -11,16 +11,18 @@ html(lang='en')
   body
     nav 
       .navbar
-        //- a(href='/organizatioHome')= `Welcome ${organization.name}`
-        h1= `Welcome ${organization.name}`
-        //- h1 Welcome 
+        if organization 
+          h1= `Welcome ${organization.name}`
+        else 
+          h1 Welcome 
         
     .detail_user
       // image side start
       .image_side
         div
           img(src='/img/eventDetails.jpg', alt='')
-          button#event_del_btn(data-eventid=`${event._id}`) DELETE
+          if organization 
+            button#event_del_btn(data-eventid=`${event._id}`) DELETE
       // image side end
       .contend
         h2 Event details
