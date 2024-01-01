@@ -18,11 +18,15 @@ const orgLogin = async(email, password) =>{
         }
         else
         if(res.status === 'ODN'){
-            alert("organization does not exits with given mail id");
+            // alert("organization does not exits with given mail id");
             // location.assign('/organizationSignup')
+            document.getElementById('udn_span').style.display = 'inline'
+            document.getElementById('wp_span').style.display = 'none'
         }
         else if(res.status === 'WP'){
-            alert("Wrong Password Entered");
+            // alert("Wrong Password Entered");
+            document.getElementById('wp_span').style.display = 'inline'
+            document.getElementById('udn_span').style.display = 'none'
             // location.reload(true);
         }
         else{

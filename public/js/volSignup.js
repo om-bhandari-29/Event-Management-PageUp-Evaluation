@@ -46,6 +46,7 @@ const vol_signup = document.getElementById('vol_signup');
 if(vol_signup)
 {
     vol_signup.addEventListener('click', e => {
+        document.getElementById('enter_full_details_span').style.display = 'none'
         const name = document.getElementById('name').value;
         const number = document.getElementById('number').value;
         const email = document.getElementById('email').value;
@@ -56,13 +57,16 @@ if(vol_signup)
         const gender = (document.getElementById('male').value == "male") ? "Male" : "Female";;
 
         if(!name || !email || !skills || !password || !confirmpassword || !gender){
-            alert("Enter full Details");
-            return location.assign('/volunteerSignup');
+            // alert("Enter full Details");
+            document.getElementById('enter_full_details_span').style.display = 'inline'
+            // return location.assign('/volunteerSignup');
         }
-
+        else
         if(password != confirmpassword){
-            alert("Password Doesn't match");
-            location.assign('/volunteerSignup');
+            // alert("Password Doesn't match");
+            // location.assign('/volunteerSignup');
+            document.getElementById('enter_full_details_span').textContent = "Password and Confirm Password Does not Match"
+            document.getElementById('enter_full_details_span').style.display = 'inline'
         }
         else{
             signup(name, email, place, skills, password, number, gender);

@@ -225,6 +225,21 @@ form input {
     text-decoration: none;
 }
 
+#wp_span{
+    display: none;
+    color: red;
+    font-weight: bold;
+}
+#udn_span{
+    display: none;
+    color: red;
+    font-weight: bold;
+}
+#enter_full_details_span{
+    display: none;
+    color: red;
+    font-weight: bold;
+}
 .my_events_con {
     height: 389px;
      width: 238px;

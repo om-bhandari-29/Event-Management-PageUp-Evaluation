@@ -14,16 +14,22 @@ const volLogin = async(email, password) =>{
 
         if(res.status === 'success'){
             alert("success")
-            location.assign('/volunteerHome');
+            return location.assign('/volunteerHome');
         }
         else
         if(res.status === 'UDN'){
-            alert("volunteer does not exits with given mail id");
+            // alert("volunteer does not exits with given mail id");
             // location.assign('/volunteerSignup')
+            document.getElementById('udn_span').style.display = 'inline'
+            document.getElementById('wp_span').style.display = 'none'
+            // document.getElementById('udn_span') = "User Does Not Exists"
         }
         else if(res.status === 'WP'){
-            alert("Wrong Password Entered");
+            // alert("Wrong Password Entered");
+            document.getElementById('wp_span').style.display = 'inline'
+            document.getElementById('udn_span').style.display = 'none'
             // location.reload(true);
+            // document.getElementById('udn_span') = "Wrong Password"
         }
         else{
             alert("Some Error occured");

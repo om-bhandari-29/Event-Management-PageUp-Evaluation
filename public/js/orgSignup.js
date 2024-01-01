@@ -43,6 +43,7 @@ const org_signup = document.getElementById('org_signup');
 if(org_signup)
 {
     org_signup.addEventListener('click', e => {
+        document.getElementById('enter_full_details_span').style.display = 'none'
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const currentOfficePlace = document.getElementById('currentOfficePlace').value;
@@ -51,13 +52,16 @@ if(org_signup)
         const confirmpassword = document.getElementById('confirmpassword').value;
 
         if(!name || !email || !password || !confirmpassword || !currentOfficePlace || !mainBranch){
-            alert("Enter full Details");
+            // alert("Enter full Details");
+            document.getElementById('enter_full_details_span').style.display = 'inline';  
             // return location.assign('/organizationSignup');
         }
-
+        else
         if(password != confirmpassword){
-            alert("Password Doesn't match");
+            // alert("Password Doesn't match");
             // location.assign('/organizationSignup');
+            document.getElementById('enter_full_details_span').textContent = "Password and Confirm Password Does not Match"
+            document.getElementById('enter_full_details_span').style.display = 'inline'
         }
         else{
             signup(name, email, currentOfficePlace, mainBranch, password);
