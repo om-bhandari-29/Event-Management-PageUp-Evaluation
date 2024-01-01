@@ -116,17 +116,19 @@ exports.getEventDetails = async(req, res) => {
     const id = req.params.id;
     // console.log(id);
     var event;
+    var volunteer;
     try{
         event  = await Event.findById(id);
+        volunteer = await Volunteer.find();
     }
     catch(err){
         console.log(err);
     }
     
-    // console.log(volunteer);
     res.status(200).render('eventDetails', {
         title: 'Event Details',
-        event: event
+        event: event,
+        volunteers: volunteer
     });
 }
 

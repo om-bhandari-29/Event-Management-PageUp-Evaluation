@@ -4,7 +4,7 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     |  
-    title User Details
+    title #{title}
     link(rel='stylesheet', href='/css/style.css')
     link(rel="shortcut icon", href='/img/eventManagementFav.png', type="image/x-icon")
     
@@ -52,4 +52,16 @@ html(lang='en')
           |  #{event.description}
         hr
 
+    .s_user_div 
+      each volunteer, i in volunteers 
+        //- console.log(i)
+        .s_s_vol_div
+          p= `${volunteer.name}`
+          p= `${volunteer.skills}`
+          button(id=`${'sel_vol_btn'+i}` onclick=`func('sel_vol_btn${i}', '${volunteer._id}', '${event._id}')`) Select Volunteer
+          //- button.sel_vol_btn(data-eventid=`${volunteer._id}`) Select Volunteer
+
+
+
   script(src="/js/delEvent.js") 
+  script(src="/js/selectVolunteer.js") 

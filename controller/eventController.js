@@ -1,4 +1,5 @@
 const Event = require('./../model/eventModel.js');
+const Volunteer = require('./../model/volunteerModel.js');
 
 exports.createEvent = async(req, res) => {
     const orgName = req.loggedInOrg.name;
@@ -71,4 +72,27 @@ exports.deleteEvent = async(req, res) => {
         status: 'success',
         message: 'event deleted successfully',
     })
+}
+
+exports.assignEvent = async(req, res) => {
+    const volId = req.params.volId;
+    const eventId = req.params.eventId;
+    // console.log(volId,eventId);
+    
+    try{
+        const updatedVolunteer = await Volunteer.findByIdAndUpdate(
+            volId,
+            { $push: { assignedEvents: eventId } },
+            { new: true, upsert: true, useFindAndModify: false }
+          );
+
+        // console.log(updatedVolunteer);
+        res.status(200).json({
+            status: 'success',
+            message: 'Event assigned to volunteer'
+        })
+    }
+    catch(err){
+        console.log(err);
+    }   
 }

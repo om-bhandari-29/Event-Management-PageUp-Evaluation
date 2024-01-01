@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Event = require('./eventModel');
 
 const volunteerSchema = new mongoose.Schema({
     name: {
@@ -46,6 +47,12 @@ const volunteerSchema = new mongoose.Schema({
         min: 10,
         max: 20
     },
+    
+    // assignedEvents: {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: 'Event'
+    // }
+    assignedEvents: [mongoose.Schema.ObjectId]
 });
 
 module.exports = mongoose.model("Volunteer", volunteerSchema);

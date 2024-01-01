@@ -7,5 +7,6 @@ router.use(organizationController.LoggedInOrganization);
 
 router.post('/create', eventController.createEvent);
 router.delete('/:id', eventController.deleteEvent);
+router.put('/:eventId/:volId', eventController.assignEvent);
 
 module.exports = router;
