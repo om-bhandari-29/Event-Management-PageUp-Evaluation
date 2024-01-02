@@ -86,7 +86,12 @@ exports.assignEvent = async(req, res) => {
             { new: true, upsert: true, useFindAndModify: false }
           );
 
-        // console.log(updatedVolunteer);
+        const event = await Event.findById(eventId);
+        // console.log(event.unselectedVolunteer);
+        await Event.findByIdAndUpdate(eventId, 
+            { $pull: { unselectedVolunteer: volId } },
+            { new: true, upsert: true, useFindAndModify: false }
+        )
         res.status(200).json({
             status: 'success',
             message: 'Event assigned to volunteer'

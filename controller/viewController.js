@@ -112,25 +112,26 @@ exports.getVolunteerDetails = async(req, res) => {
     });
 }
 
-exports.getEventDetails = async(req, res) => {
+exports.getEventDetails = async (req, res) => {
     const id = req.params.id;
-    // console.log(id);
-    var event;
-    var volunteer;
-    try{
-        event  = await Event.findById(id);
-        volunteer = await Volunteer.find();
-    }
-    catch(err){
+    try {
+        const event = await Event.findById(id);
+        const volunteerPromises = event.unselectedVolunteer.map(async (volId) => {
+            const vol = await Volunteer.findById(volId);
+            return vol;
+        });
+        const unselectedVol = await Promise.all(volunteerPromises);
+        
+        res.status(200).render('eventDetails', {
+            title: 'Event Details',
+            event: event,
+            volunteers: unselectedVol
+        });
+    } catch (err) {
         console.log(err);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
-    
-    res.status(200).render('eventDetails', {
-        title: 'Event Details',
-        event: event,
-        volunteers: volunteer
-    });
-}
+};
 
 exports.organizationHome = async(req, res) => {
     res.status(200).render('organizationHome', {
@@ -161,6 +162,8 @@ exports.getAssignedEvents = async(req, res) => {
             return null; 
         }
     }));
+
+    // console.log(eveA);
 
     res.status(200).render('volunteerViews/assignedEvent', {
         title: 'Assigned Events',

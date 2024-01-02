@@ -19,10 +19,10 @@ html(lang='en')
     
     .all_vol_main_btn
       if(assignedEvents.length == 0)
-        h1  No Events to show 
+        h1  No Events assigned to you  
       else 
         each event in assignedEvents
-          .all_events_con
+          .assigned_events
                 img(src='/img/event.jpg', alt='', height='150', width='250')
                 a#all_event_anchor(href=`/event/${event._id}`) 
                   .all_events_con_content
@@ -35,16 +35,7 @@ html(lang='en')
                       p
                       b Date : 
                       |  #{event.date}
-                      p
-                      b Description : 
-                      |  #{event.description}
-                      p
-                      b Start Time :
-                      |  #{event.startTime}
-                      p
-                      b End Time :
-                      |  #{event.endTime}
-                      p
-                      b Organized By :
-                      |  #{event.createdBy}
                       p 
+
+                button(type="button") Accept 
+                button(type="button") Decline 

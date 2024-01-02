@@ -11,10 +11,12 @@ html(lang='en')
   body
     nav 
       .navbar
-        if organization 
-          h1= `Welcome ${organization.name}`
+        if organization
+          a(href='/organizationHome')=`Welcome ${organization.name}`  
+          //- h1= `Welcome ${organization.name}`
         else if volunteer
-          h1= `Welcome ${volunteer.name}`
+          a(href='/volunteerHome')=`Welcome ${volunteer.name}`  
+          //- h1= `Welcome ${volunteer.name}`
         else 
           h1 Welcome 
         

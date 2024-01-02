@@ -10,7 +10,7 @@ const selectVolunteer = async (eventId, volId) => {
 
         if(responce.status === 'success'){
             alert('Volunter asigned successfully');
-            // location.assign('/');
+            location.reload(true);
         }
     }
     catch(err){

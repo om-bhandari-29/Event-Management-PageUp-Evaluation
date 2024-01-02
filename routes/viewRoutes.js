@@ -13,13 +13,13 @@ router.get('/volunteerViews/volLogin', viewsController.volLogin);
 router.get('/volunteerViews/volunteerSignup', viewsController.volunteerSignup);
 router.get('/volunteerHome', viewsController.volunteerHome);
 router.get('/allVolunteer', viewsController.allVolunteer);
+router.get('/volunteerViews/assignedEvents', volunteerController.LoggedInUser, viewsController.getAssignedEvents);
 
 router.get('/allEvents', viewsController.allEvents);
 router.get('/myEvents', viewsController.myEvents);
 router.get('/createEvent', viewsController.createEvent);
 router.get('/event/:id', viewsController.getEventDetails);
 
-router.get('/volunteerViews/assignedEvents', volunteerController.LoggedInUser, viewsController.getAssignedEvents);
 
 router.get('/organizationViews/orgLogin', viewsController.orgLogin);
 router.get('/organizationViews/organizationSignup', viewsController.organizationSignup);
