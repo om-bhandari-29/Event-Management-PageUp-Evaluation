@@ -21,24 +21,24 @@ html(lang='en')
       if(assignedEvents.length == 0)
         h1  No Events assigned to you  
       else 
-        each event in assignedEvents
+        each event,i in assignedEvents
           .assigned_events
-                img(src='/img/event.jpg', alt='', height='150', width='250')
-                a#all_event_anchor(href=`/event/${event._id}`) 
-                  .all_events_con_content
-                      p
-                      b Name : 
-                      | #{event.name}
-                      p
-                      b Place : 
-                      |  #{event.place}
-                      p
-                      b Date : 
-                      |  #{event.date}
-                      p 
+            img(src='/img/event.jpg', alt='', height='150', width='250')
+            a#all_event_anchor(href=`/event/${event._id}`) 
+              .all_events_con_content
+                  p
+                  b Name : 
+                  | #{event.name}
+                  p
+                  b Place : 
+                  |  #{event.place}
+                  p
+                  b Date : 
+                  |  #{event.date}
+                  p 
 
-                //- button(type="button") Accept
-                button(id=`${'accept_request'+i}` onclick=`func('accept_request${i}', '${volunteer._id}', '${event._id}')`) Accept 
-                button(type="button") Decline 
+            button(id=`${'accept_request'+i}` onclick=`accept('accept_request${i}', '${volunteer._id}', '${event._id}')`) Accept 
+            button(id=`${'decline_request'+i}` onclick=`decline('decline_request${i}', '${volunteer._id}', '${event._id}')`) Deline 
   
   script(src="/js/acceptRequest.js") 
+  script(src="/js/declineRequest.js") 

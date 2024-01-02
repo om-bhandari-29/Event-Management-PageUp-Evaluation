@@ -1,6 +1,6 @@
-const acceptRequest = async (eventId, volId) => {
+const declineRequest = async (eventId, volId) => {
     try{
-        const responce = await fetch(`/event/accept/${eventId}/${volId}`, {
+        const responce = await fetch(`/event/decline/${eventId}/${volId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -8,7 +8,7 @@ const acceptRequest = async (eventId, volId) => {
         }).then((res) => res.json());
 
         if(responce.status === 'success'){
-            alert('Request accepted successfully');
+            alert('Request declined successfully');
             // document.getElementById('clickId').click = 'disable'
             location.reload(true);
         }
@@ -19,7 +19,7 @@ const acceptRequest = async (eventId, volId) => {
     }
 }
 
-function accept(clickId, volId, eventId){
+function decline(clickId, volId, eventId){
     // console.log(clickId);
     console.log(volId);
     console.log(eventId);
@@ -27,6 +27,6 @@ function accept(clickId, volId, eventId){
     const btn = document.getElementById(clickId);
     if(btn){
         btn.disabled = true
-        acceptRequest(eventId, volId);
+        declineRequest(eventId, volId);
     }
 }

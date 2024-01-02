@@ -51,4 +51,26 @@ const volunteerSchema = new mongoose.Schema({
     assignedEvents: [mongoose.Schema.ObjectId]
 });
 
+// volunteerSchema.post('save', async function() {
+//     try {
+//         const Event = require('./eventModel.js');
+//         const events = await Event.find(); // Fetching all events
+
+//         const volunteerId = this._id; // Get the ID of the saved volunteer
+        
+//         console.log("events : "+events);
+//         console.log("volunteerId :"+volunteerId);
+        
+//         events.forEach(async (eve) => {
+//             // if (!eve.unselectedVolunteer.includes(volunteerId)){
+//                 eve.unselectedVolunteer.push(volunteerId);
+//                 await eve.save();
+//                 // }
+//             })
+//         console.log("events : "+events);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// });
+
 module.exports = mongoose.model("Volunteer", volunteerSchema);

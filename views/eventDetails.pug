@@ -59,19 +59,24 @@ html(lang='en')
     if organization
       .s_user_div 
         h4 UnSelected Volunteer
-        each volunteer, i in unselectedVolunteers 
-          //- console.log(i)
-          .s_s_vol_div
-            p= `${volunteer.name}`
-            p= `${volunteer.skills}`
-            button(id=`${'sel_vol_btn'+i}` onclick=`func('sel_vol_btn${i}', '${volunteer._id}', '${event._id}')`) Select Volunteer
+        if(unselectedVolunteers.length == 0)
+          h5 No Volunteers
+        else 
+          each volunteer, i in unselectedVolunteers 
+            .s_s_vol_div
+              p= `${volunteer.name}`
+              p= `${volunteer.skills}`
+              button(id=`${'sel_vol_btn'+i}` onclick=`func('sel_vol_btn${i}', '${volunteer._id}', '${event._id}')`) Select Volunteer
 
       .s_user_div
         h4 Accepted Request
-        each volunteer, i in requestAcceptedVolunteer 
-          .s_s_vol_div
-            p= `${volunteer.name}`
-            p= `${volunteer.skills}`
+        if(requestAcceptedVolunteer.length == 0)
+          h5 No Volunteers
+        else 
+          each volunteer in requestAcceptedVolunteer 
+            .s_s_vol_div
+              p= `${volunteer.name}`
+              p= `${volunteer.skills}`
             
 
 

@@ -9,5 +9,6 @@ router.post('/create', eventController.createEvent);
 router.delete('/:id', eventController.deleteEvent);
 router.put('/:eventId/:volId', eventController.assignEvent);
 router.put('/accept/:eventId/:volId', eventController.acceptRequest);
+router.put('/decline/:eventId/:volId', eventController.declineRequest);
 
 module.exports = router;

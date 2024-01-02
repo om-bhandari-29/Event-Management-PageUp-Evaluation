@@ -117,10 +117,15 @@ exports.getEventDetails = async (req, res) => {
     try {
         const event = await Event.findById(id);
 
-        const volunteerPromises = event.unselectedVolunteer.map(async (volId) => {
+        const volunteerPromises = await event.unselectedVolunteer.map(async (volId) => {
+            // console.log(volId);
             const vol = await Volunteer.findById(volId);
+            // console.log(vol);
             return vol;
         });
+
+        // console.log(volunteerPromises);
+
         const unselectedVol = await Promise.all(volunteerPromises);
         
         const requestPromises = event.acceptedRequest.map(async (volId) => {
