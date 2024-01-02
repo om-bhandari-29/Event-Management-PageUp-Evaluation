@@ -13,6 +13,8 @@ html(lang='en')
       .navbar
         if organization 
           h1= `Welcome ${organization.name}`
+        else if volunteer
+          h1= `Welcome ${volunteer.name}`
         else 
           h1 Welcome 
         
@@ -51,15 +53,16 @@ html(lang='en')
           b description :
           |  #{event.description}
         hr
-
-    .s_user_div 
-      each volunteer, i in volunteers 
-        //- console.log(i)
-        .s_s_vol_div
-          p= `${volunteer.name}`
-          p= `${volunteer.skills}`
-          button(id=`${'sel_vol_btn'+i}` onclick=`func('sel_vol_btn${i}', '${volunteer._id}', '${event._id}')`) Select Volunteer
-          //- button.sel_vol_btn(data-eventid=`${volunteer._id}`) Select Volunteer
+    
+    if organization
+      .s_user_div 
+        each volunteer, i in volunteers 
+          //- console.log(i)
+          .s_s_vol_div
+            p= `${volunteer.name}`
+            p= `${volunteer.skills}`
+            button(id=`${'sel_vol_btn'+i}` onclick=`func('sel_vol_btn${i}', '${volunteer._id}', '${event._id}')`) Select Volunteer
+            //- button.sel_vol_btn(data-eventid=`${volunteer._id}`) Select Volunteer
 
 
 

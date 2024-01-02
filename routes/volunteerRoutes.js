@@ -8,6 +8,7 @@ router.get('/signout', volunteerController.signout);
 router.get('/getAllVolunteer', volunteerController.getAllVolunteer);
 router.delete('/:dId', volunteerController.deleteVolunteer);
 router.get('/details/:id', volunteerController.getVolunteerDetails);
+// router.get('/assignedEvents', volunteerController.LoggedInUser, volunteerController.getAssignedEvents);
 
 
 

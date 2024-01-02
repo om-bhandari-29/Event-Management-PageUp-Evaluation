@@ -10,20 +10,20 @@ html(lang='en')
   body
     nav
       .navbar
-        if user
-          h1#vol_home_h1= `Welcome ${user.name}`
+        if volunteer
+          h1#vol_home_h1= `Welcome ${volunteer.name}`
           button#vol_home_logout(type="button") Log Out
         else 
           h1 Volunteer Management System
 
     .vol_home_main_btn
-      a(href="/allEvents") 
+      a(href="/volunteerViews/assignedEvents") 
         button#VHF.vol_home_btn.btn.HF Assigned Events
 
       a(href="/allEvents")  
         button#VHS.vol_home_btn.btn.HF All Event
-
-      a(href=`${user._id}`)
+      
+      a(href=`${volunteer._id}`)
         button#VHT.vol_home_btn.btn.HF My profile
 
   script(src='/js/logout.js') 

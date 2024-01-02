@@ -146,3 +146,24 @@ exports.getOrganizationDetails = async(req, res) => {
         // allPosts: withDuration
     });
 }
+
+exports.getAssignedEvents = async(req, res) => {
+    // const currentVol = req.curVol;
+    // console.log(currentVol);
+    const assignedEvents = req.curVol.assignedEvents;
+
+    const eveA = await Promise.all(assignedEvents.map(async (eventId) => {
+        try {
+            const event = await Event.findById(eventId);
+            return event;
+        } catch (error) {
+            console.error(`Error finding event with ID ${eventId}:`, error);
+            return null; 
+        }
+    }));
+
+    res.status(200).render('volunteerViews/assignedEvent', {
+        title: 'Assigned Events',
+        assignedEvents: eveA
+    })
+}

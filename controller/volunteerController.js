@@ -1,6 +1,7 @@
 const Volunteer = require('../model/volunteerModel.js');
 const sendJwt = require('./sendJwt.js');
 const jwt = require("jsonwebtoken");
+const Event = require('./../model/eventModel.js');
 
 exports.signup = async (req, res) => {
     const {name, email, number, password, place, skills, gender} = req.body;
@@ -199,8 +200,9 @@ exports.LoggedInUser = async (req, res, next) =>{
             }
   
         // THERE IS A LOGGED IN USER
-        res.locals.user = currentVol;
-        console.log(res.locals.user._id);
+        res.locals.volunteer = currentVol;
+        req.curVol = currentVol;
+        // console.log(res.locals.user._id);
         return next();
       } 
       catch (err) {
@@ -213,3 +215,23 @@ exports.LoggedInUser = async (req, res, next) =>{
     next();
 };
 
+exports.getAssignedEvents = async(req, res) => {
+    // const currentVol = req.curVol;
+    // console.log(currentVol);
+    const assignedEvents = req.curVol.assignedEvents;
+
+    const eveA = await Promise.all(assignedEvents.map(async (eventId) => {
+        try {
+            const event = await Event.findById(eventId);
+            return event;
+        } catch (error) {
+            console.error(`Error finding event with ID ${eventId}:`, error);
+            return null; 
+        }
+    }));
+
+    res.status(200).json({
+        status: 'success',
+        assignedEvents: eveA
+    })
+}
