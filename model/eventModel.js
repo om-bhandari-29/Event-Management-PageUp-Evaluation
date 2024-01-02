@@ -39,10 +39,11 @@ const eventSchema = new mongoose.Schema({
         require: true,
         default: null
     },
-    unselectedVolunteer: [mongoose.Schema.ObjectId],
+    selectedVolunteer: [mongoose.Schema.ObjectId],
     acceptedRequest: [mongoose.Schema.ObjectId]
 })
 
+//adding all volunteer in unselectedVolunteer field of newly created event
 eventSchema.pre('save', async function(next){
     try {
         const Volunteer = require('./volunteerModel.js');

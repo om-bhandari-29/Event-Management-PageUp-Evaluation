@@ -62,11 +62,9 @@ const volunteerSchema = new mongoose.Schema({
 //         console.log("volunteerId :"+volunteerId);
         
 //         events.forEach(async (eve) => {
-//             // if (!eve.unselectedVolunteer.includes(volunteerId)){
-//                 eve.unselectedVolunteer.push(volunteerId);
-//                 await eve.save();
-//                 // }
-//             })
+//             eve.unselectedVolunteer.push(volunteerId);
+//             await eve.save();
+//         })
 //         console.log("events : "+events);
 //     } catch (error) {
 //         console.error(error);

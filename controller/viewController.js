@@ -116,18 +116,19 @@ exports.getEventDetails = async (req, res) => {
     const id = req.params.id;
     try {
         const event = await Event.findById(id);
+        const allVolunteer = await Volunteer.find();
+        const selectedVolunteerIds = event.selectedVolunteer.map(volId => volId.toString()); // Convert selected volunteer IDs to strings for comparison
 
-        const volunteerPromises = await event.unselectedVolunteer.map(async (volId) => {
-            // console.log(volId);
-            const vol = await Volunteer.findById(volId);
-            // console.log(vol);
-            return vol;
+        const volunteerPromises = allVolunteer.map(async (vol) => {
+            const volIdString = vol._id.toString();
+            if (!selectedVolunteerIds.includes(volIdString)) {
+                return vol;
+            }
         });
 
-        // console.log(volunteerPromises);
+        const unselectedVol = (await Promise.all(volunteerPromises)).filter(Boolean);
 
-        const unselectedVol = await Promise.all(volunteerPromises);
-        
+        console.log(unselectedVol);
         const requestPromises = event.acceptedRequest.map(async (volId) => {
             const vol = await Volunteer.findById(volId);
             return vol;
