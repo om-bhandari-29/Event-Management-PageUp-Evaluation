@@ -39,7 +39,8 @@ const eventSchema = new mongoose.Schema({
         require: true,
         default: null
     },
-    unselectedVolunteer: [mongoose.Schema.ObjectId]
+    unselectedVolunteer: [mongoose.Schema.ObjectId],
+    acceptedRequest: [mongoose.Schema.ObjectId]
 })
 
 eventSchema.pre('save', async function(next){

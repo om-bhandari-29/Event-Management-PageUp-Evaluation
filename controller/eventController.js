@@ -101,3 +101,29 @@ exports.assignEvent = async(req, res) => {
         console.log(err);
     }   
 }
+
+exports.acceptRequest = async(req, res) => {
+    const volId = req.params.volId;
+    const eventId = req.params.eventId;
+    // console.log(volId,eventId);
+    
+    try{
+        await Volunteer.findByIdAndUpdate(
+            volId,
+            { $pull: { assignedEvents: eventId } },
+            { new: true, upsert: true, useFindAndModify: false }
+          );
+
+        await Event.findByIdAndUpdate(eventId, 
+            { $push: { acceptedRequest: volId } },
+            { new: true, upsert: true, useFindAndModify: false }
+        )
+        res.status(200).json({
+            status: 'success',
+            message: 'Event assigned to volunteer'
+        })
+    }
+    catch(err){
+        console.log(err);
+    }   
+}

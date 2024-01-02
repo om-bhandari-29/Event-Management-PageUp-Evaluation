@@ -116,16 +116,24 @@ exports.getEventDetails = async (req, res) => {
     const id = req.params.id;
     try {
         const event = await Event.findById(id);
+
         const volunteerPromises = event.unselectedVolunteer.map(async (volId) => {
             const vol = await Volunteer.findById(volId);
             return vol;
         });
         const unselectedVol = await Promise.all(volunteerPromises);
         
+        const requestPromises = event.acceptedRequest.map(async (volId) => {
+            const vol = await Volunteer.findById(volId);
+            return vol;
+        })
+        const requestAccept = await Promise.all(requestPromises);
+
         res.status(200).render('eventDetails', {
             title: 'Event Details',
             event: event,
-            volunteers: unselectedVol
+            unselectedVolunteers: unselectedVol,
+            requestAcceptedVolunteer: requestAccept
         });
     } catch (err) {
         console.log(err);
@@ -136,15 +144,11 @@ exports.getEventDetails = async (req, res) => {
 exports.organizationHome = async(req, res) => {
     res.status(200).render('organizationHome', {
         title: 'Organization Home'
-        // allPosts: post
-        // allPosts: withDuration
     });
 }
 exports.getOrganizationDetails = async(req, res) => {
     res.status(200).render('organizationDetails', {
         title: 'Organization Details'
-        // allPosts: post
-        // allPosts: withDuration
     });
 }
 

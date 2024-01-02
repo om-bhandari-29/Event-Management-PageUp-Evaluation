@@ -37,5 +37,8 @@ html(lang='en')
                       |  #{event.date}
                       p 
 
-                button(type="button") Accept 
+                //- button(type="button") Accept
+                button(id=`${'accept_request'+i}` onclick=`func('accept_request${i}', '${volunteer._id}', '${event._id}')`) Accept 
                 button(type="button") Decline 
+  
+  script(src="/js/acceptRequest.js") 
