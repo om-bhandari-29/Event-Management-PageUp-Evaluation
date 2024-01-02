@@ -1,0 +1,40 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Create Event
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel="shortcut icon", href='/img/eventManagementFav.png', type="image/x-icon")
+  body
+    nav
+      .navbar
+        if organization
+          a#vol_home_h1(href='/organizationHome')= `Welcome ${organization.name}`
+          button#vol_home_logout(type="button") Log Out
+        else 
+          h1 Volunteer Management System
+    .center
+      .signup
+        h3
+          a(href="/myEvents") My Events  
+        h3 Enter Event Details
+        form(action='')
+          input#name(type='text', placeholder='Name*', required='')
+          br
+          //- br
+          //- span Just Enter City Name Only
+          input#place(type='text', placeholder='Just Enter City Name Only*', required='')
+          br
+          input#date(type='date', placeholder='Date*', required='')
+          br
+          input#description(type='text', placeholder='Description*', required='')
+          br
+          input#startTime(type='time', placeholder='Start-time *', required='')
+          br
+          input#endTime(type='time', placeholder='End-time*', required='')
+          br
+          input#create_event_btn(type='button', value='Create Event')
+          
+  script(src="/js/createEvent.js")
+  script(src="/js/logout.js")  

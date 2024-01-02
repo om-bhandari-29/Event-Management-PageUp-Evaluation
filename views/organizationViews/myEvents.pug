@@ -1,0 +1,55 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    |  
+    title All Volunteer
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel="shortcut icon", href='/img/eventManagementFav.png', type="image/x-icon")
+    
+    style.
+      .main_btn{
+      height: 70%;
+      }
+  body
+    nav
+      .navbar
+        if organization
+          a#vol_home_h1(href='/organizationHome')= `Welcome ${organization.name}`
+          button#vol_home_logout(type="button") Log Out
+        else 
+          h1 Volunteer Management System 
+
+    h2 My Events Page
+    .all_vol_main_btn
+      if(events.length == 0)
+        h1 No Events to display
+        a(href="/createEvent") click here, to create your own event
+      else 
+        each event in events
+            .all_events_con
+                img(src='/img/event.jpg', alt='', height='150', width='250')
+                .all_events_con_content
+                    p
+                    b Name : 
+                    | #{event.name}
+                    //- | p="hellp"
+                    p
+                    b Place : 
+                    |  #{event.place}
+                    p
+                    b Start Time :
+                    |  #{event.startTime}
+                    p
+                    b End Time :
+                    |  #{event.endTime}
+                    p
+                    b Organized By :
+                    |  #{event.createdBy}
+                    p 
+
+                a(href=`/event/${event._id}`)     
+                  button#event_del_btn(data-eventid=`${event._id}`) More Details 
+
+  script(src="/js/logout.js") 

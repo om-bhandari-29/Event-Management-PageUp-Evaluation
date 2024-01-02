@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title #{title}
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel="shortcut icon", href='/img/eventManagementFav.png', type="image/x-icon")
+
+  body
+    nav
+      .navbar
+        if volunteer
+          h1#vol_home_h1= `Welcome ${volunteer.name}`
+          button#vol_home_logout(type="button") Log Out
+        else 
+          h1 Volunteer Management System
+
+    .vol_home_main_btn
+      a(href="/volunteerViews/assignedEvents") 
+        button#VHF.vol_home_btn.btn.HF Assigned Events
+
+      a(href="/allEvents")  
+        button#VHS.vol_home_btn.btn.HF All Event
+      
+      a(href=`${volunteer._id}`)
+        button#VHT.vol_home_btn.btn.HF My profile
+
+  script(src='/js/logout.js') 

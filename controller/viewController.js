@@ -118,10 +118,12 @@ exports.getEventDetails = async (req, res) => {
         const event = await Event.findById(id);
         const allVolunteer = await Volunteer.find();
         const selectedVolunteerIds = event.selectedVolunteer.map(volId => volId.toString()); // Convert selected volunteer IDs to strings for comparison
+        const eventPlaceLowerCase = event.place.toLowerCase();
 
         const volunteerPromises = allVolunteer.map(async (vol) => {
             const volIdString = vol._id.toString();
-            if (!selectedVolunteerIds.includes(volIdString)) {
+            const volPlaceLowerCase = vol.place.toLowerCase()
+            if (!selectedVolunteerIds.includes(volIdString) && volPlaceLowerCase === eventPlaceLowerCase) {
                 return vol;
             }
         });

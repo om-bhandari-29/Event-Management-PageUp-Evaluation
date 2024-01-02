@@ -1,0 +1,44 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    |  
+    title User Details
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel="shortcut icon", href='/img/eventManagementFav.png', type="image/x-icon")
+    
+  body
+    nav 
+      .navbar
+        if volunteer
+          a(href='/volunteerHome')= `Welcome ${volunteer.name}`
+        
+    .detail_user
+      // image side start
+      if volunteer 
+        .image_side
+          div
+            img(src='img/ptofile4.jpg', alt='')
+            button#vol_del_btn(data-volid=`${volunteer._id}`) DELETE
+        // image side end
+        .contend
+          h2 Volunteer details
+          hr
+          p
+            b Name : 
+            |  #{volunteer.name}
+          hr
+          p
+            b Email id: 
+            | #{volunteer.email}
+          hr
+          p
+            b Phone no : 
+            | #{volunteer.number}
+          hr
+          p
+            b Gender : 
+            | #{volunteer.gender}
+          hr
+  script(src="/js/delVol.js") 
