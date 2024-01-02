@@ -14,8 +14,10 @@ html(lang='en')
   body
     nav
       .navbar
-        //- a(href='/volunteerHome') Volunteer Management System | All Events
-        h1 Volunteer Management System | All Events
+        if volunteer 
+          a(href='/volunteerHome')=`${volunteer.name} | All Events`  
+        else 
+          h1 Volunteer Management System | All Events
     
     .all_vol_main_btn
       each event in events

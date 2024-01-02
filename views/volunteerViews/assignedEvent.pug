@@ -14,8 +14,8 @@ html(lang='en')
   body
     nav
       .navbar
-        //- a(href='/volunteerHome') Volunteer Management System | All Events
-        h1 Volunteer Management System | Assigned Events
+        a(href='/volunteerHome') Volunteer Management System | Assigned Events
+        //- h1 Volunteer Management System | Assigned Events
     
     .all_vol_main_btn
       if(assignedEvents.length == 0)
@@ -29,7 +29,6 @@ html(lang='en')
                       p
                       b Name : 
                       | #{event.name}
-                      //- | p="hellp"
                       p
                       b Place : 
                       |  #{event.place}
