@@ -128,9 +128,10 @@ exports.getEventDetails = async (req, res) => {
             }
         });
 
+        // console.log(volunteerPromises);
         const unselectedVol = (await Promise.all(volunteerPromises)).filter(Boolean);
 
-        console.log(unselectedVol);
+        // console.log(unselectedVol);
         const requestPromises = event.acceptedRequest.map(async (volId) => {
             const vol = await Volunteer.findById(volId);
             return vol;

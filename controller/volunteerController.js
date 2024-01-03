@@ -94,7 +94,7 @@ exports.signin = async(req, res) => {
 
 exports.signout = async (req, res) =>{
     res.cookie('jwt', 'loggedout', {
-      expires: new Date(Date.now() + 300 + 1000),
+      expires: new Date(Date.now() + 1300),
       httpOnly: true
     })
     
@@ -108,7 +108,7 @@ exports.getAllVolunteer = async(req, res) => {
     let allVolunteer, dataCount;
     try{
         allVolunteer = await Volunteer.find();
-        dataCount = await Volunteer.find().count();
+        // dataCount = await Volunteer.find().count();
     }
     catch(err){
         console.log("Error fetching all volunteers");
@@ -130,7 +130,6 @@ exports.getAllVolunteer = async(req, res) => {
         status: 'Success',
         message: 'Data fetched Successfully',
         data: {
-            total: dataCount,
             // allVolunteer
             newAllVolunteer
         }
