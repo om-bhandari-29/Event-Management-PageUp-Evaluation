@@ -32,7 +32,7 @@ mongoose.connect(db, {
     console.log("Error occured while connecting to DB + "+err);
 });
 
-app.use(express.json()); //to parse json from body (body parser) and to tell node js that we are using data in json format
+app.use(express.json()); //to parse json data from body (body parser)
 app.use(morgan("common"));
 
 
