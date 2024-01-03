@@ -1,5 +1,4 @@
 let remoteDate = new Date();
-// remoteDate = remoteDate.toLocaleDateString('en-GB');
 
 const createEvent = async(name, place, date, description, startTime, endTime) =>{
     try{

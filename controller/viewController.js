@@ -45,47 +45,46 @@ exports.allVolunteer = async(req, res) => {
     var allVolunteers;
     try{
         allVolunteers  = await Volunteer.find();
+        res.status(200).render('allVolunteer', {
+            title: 'All Volunteer',
+            volunteers: allVolunteers
+        });
     }
     catch(err){
         console.log(err);
     }
-
-    res.status(200).render('allVolunteer', {
-        title: 'All Volunteer',
-        volunteers: allVolunteers
-    });
 }
 
 exports.allEvents = async(req, res) => {
     var events;
     try{
         events = await Event.find();
+        res.status(200).render('allEvents', {
+            title: 'All Events',
+            events: events
+        });
     }
     catch(err){
         console.log(err);
     }
-
-    res.status(200).render('allEvents', {
-        title: 'All Events',
-        events: events
-    });
 }
+
 exports.myEvents = async(req, res) => {
     // req.loggedInOrg.createdById
     // console.log(req.loggedInOrg.createdById);
     var events;
     try{
         events = await Event.find({createdById: req.loggedInOrg._id});
+        res.status(200).render('myEvents', {
+            title: 'All Events',
+            events: events
+        });
     }
     catch(err){
         console.log(err);
     }
 
     // console.log("events : "+events);
-    res.status(200).render('myEvents', {
-        title: 'All Events',
-        events: events
-    });
 }
 
 exports.createEvent = async(req, res) => {
@@ -100,16 +99,14 @@ exports.getVolunteerDetails = async(req, res) => {
     var volunteer;
     try{
         volunteer  = await Volunteer.findById(volId);
+        res.status(200).render('volunteerDetails', {
+            title: 'Volunteer Details',
+            volunteer: volunteer
+        });
     }
     catch(err){
         console.log(err);
     }
-    
-    // console.log(volunteer);
-    res.status(200).render('volunteerDetails', {
-        title: 'Volunteer Details',
-        volunteer: volunteer
-    });
 }
 
 exports.getEventDetails = async (req, res) => {
