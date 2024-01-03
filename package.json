@@ -4,7 +4,6 @@
   "description": "Volunteer Management System project made to test the skills of mine at PageUp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
   "author": "Om Bhandari",
